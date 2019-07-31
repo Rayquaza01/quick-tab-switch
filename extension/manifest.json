@@ -8,6 +8,9 @@
             "id": "quick-tab-switcher@r01"
         }
     },
+    "background": {
+        "scripts": ["bg.js"]
+    },
     "permissions": ["storage", "tabs"],
     "browser_action": {
         "browser_style": true,

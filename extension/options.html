@@ -1,13 +1,37 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset='utf-8'>
-<title>Options</title>
-<link href='options.css' rel='stylesheet' type='text/css'>
-</head>
-<body>
-<h1>Shortcut</h1>
-<input id='shortcut' placeholder='Ctrl+Alt+B' type='text'>
-<script src='options.js'></script>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <title>Options</title>
+        <link href="options.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <h3>Shortcut</h3>
+         <input id="shortcut" type="text">
+         <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#Key_combinations">Valid Shortcuts</a>
+        <h3>Search</h3>
+        <div>
+            Search Mode:
+            <select id="searchMode">
+                <option value="string">Normal</option>
+                <option value="regex">RegEx</option>
+            </select>
+        </div>
+        <div>
+            Case Sensitivity:
+            <select id="caseSensitivity">
+                <option value="nocase">Case Insensitive</option>
+                <option value="case">Case Sensitive</option>
+            </select>
+        </div>
+        <h3>UI</h3>
+        <div>
+            Colorscheme:
+            <select id="theme">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+        </div>
+        <script src="options.js"></script>
+    </body>
 </html>
