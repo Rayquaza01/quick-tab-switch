@@ -1,0 +1,27 @@
+{
+    "manifest_version": 2,
+    "name": "Quick Tab Switcher",
+    "version": "1.0.0",
+    "description": "A quick tab switcher for Firefox",
+    "applications": {
+        "gecko": {
+            "id": "quick-tab-switcher@r01"
+        }
+    },
+    "permissions": ["storage", "tabs"],
+    "browser_action": {
+        "browser_style": true,
+        "default_popup": "index.html"
+    },
+    "options_ui": {
+        "page": "options.html",
+        "browser_style": true
+    },
+    "commands": {
+        "_execute_browser_action": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+B"
+            }
+        }
+    }
+}
