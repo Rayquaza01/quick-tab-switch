@@ -12,9 +12,21 @@ body {
 
 .tab {
     padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.tab div {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+
+img {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
 }
 
 .active {
@@ -37,6 +49,8 @@ body {
 input {
     width: 100%;
     border: none;
+    padding: 5px;
+    border-radius: 3px;
 }
 
 .invalid {

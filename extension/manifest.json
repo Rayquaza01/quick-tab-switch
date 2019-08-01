@@ -8,13 +8,24 @@
             "id": "quick-tab-switcher@r01"
         }
     },
+    "icons": {
+        "96": "icons/icon-96.png"
+    },
     "background": {
         "scripts": ["bg.js"]
     },
     "permissions": ["storage", "tabs"],
     "browser_action": {
         "browser_style": true,
-        "default_popup": "index.html"
+        "default_popup": "index.html",
+        "default_icon": "icons/icon.png",
+        "theme_icons": [
+            {
+                "light": "icons/icon-light.png",
+                "dark": "icons/icon.png",
+                "size": 16
+            }
+        ]
     },
     "options_ui": {
         "page": "options.html",
