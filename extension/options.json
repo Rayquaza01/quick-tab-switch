@@ -2,5 +2,7 @@
     "shortcut": "Ctrl+Shift+B",
     "searchMode": "string",
     "caseSensitivity": "nocase",
-    "theme": "light"
+    "theme": "light",
+    "showDead": true,
+    "maxDead": 5
 }

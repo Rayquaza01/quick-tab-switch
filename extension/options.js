@@ -2,6 +2,8 @@ const shortcut = document.getElementById("shortcut");
 const searchMode = document.getElementById("searchMode");
 const caseSensitivity = document.getElementById("caseSensitivity");
 const theme = document.getElementById("theme");
+const showDead = document.getElementById("showDead");
+const maxDead = document.getElementById("maxDead");
 
 async function load() {
     let res = await browser.storage.local.get();
@@ -9,6 +11,8 @@ async function load() {
     searchMode.value = res.searchMode;
     caseSensitivity.value = res.caseSensitivity;
     theme.value = res.theme;
+    showDead.value = JSON.stringify(res.showDead);
+    maxDead.value = res.maxDead;
 }
 
 function save() {
@@ -16,7 +20,9 @@ function save() {
         shortcut: shortcut.value,
         searchMode: searchMode.value,
         caseSensitivity: caseSensitivity.value,
-        theme: theme.value
+        theme: theme.value,
+        showDead: JSON.parse(showDead.value),
+        maxDead: Number(maxDead.value)
     });
     browser.commands.update({
         name: "_execute_browser_action",

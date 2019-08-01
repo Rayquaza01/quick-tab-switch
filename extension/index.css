@@ -17,6 +17,19 @@ body {
     align-items: center;
 }
 
+.dead {
+    color: #F44336;
+}
+
+.dead div {
+    text-decoration: line-through;
+}
+
+/* .active.dead div { */
+/*     /1* background-color: green; *1/ */
+/*     text-decoration: line-through; */
+/* } */
+
 .tab div {
     white-space: nowrap;
     text-overflow: ellipsis;

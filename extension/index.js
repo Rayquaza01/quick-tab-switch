@@ -3,8 +3,8 @@ const search = document.getElementById("search");
 
 function getOnScreen() {
     // https://stackoverflow.com/a/10445639
-    let tabs = Array.from(document.getElementsByClassName("tab"));
-    let active = document.getElementsByClassName("active")[0];
+    let tabs = getTabList(true);
+    let active = getActive();
     if (tabs.indexOf(active) < 10) {
         window.scrollTo({
             top: 0,
@@ -27,7 +27,7 @@ function createTabs(info) {
     if (info.active) {
         tab.classList.add("active");
     }
-    tab.dataset.id = info.id;
+    tab.dataset.id = info.hasOwnProperty("id") ? info.id : info.sessionId;
     tab.dataset.name = info.title;
     tab.dataset.url = info.url;
 
@@ -45,42 +45,64 @@ function createTabs(info) {
     tab.appendChild(name);
 
     tabs_ele.appendChild(tab);
+    return tab;
 }
 
 function findNextTab(dir, active) {
-    let tabs = Array.from(document.getElementsByClassName("tab"));
+    let tabs = getTabList(true);
+    let idx = tabs.indexOf(active);
 
-    let newActive = active[dir];
-    while (newActive === null || newActive.classList.contains("hidden")) {
-        if (newActive === null) {
-            if (dir === "nextSibling") {
-                newActive = tabs[0];
-            } else if (dir === "previousSibling") {
-                newActive = tabs[tabs.length - 1];
-            }
-        } else if (newActive.classList.contains("hidden")) {
-            newActive = newActive[dir];
-        }
+    let newActive;
+    let newIdx = idx + dir;
+    if (newIdx === -1) {
+        newActive = tabs[tabs.length - 1];
+    } else if (newIdx === tabs.length) {
+        newActive = tabs[0];
+    } else {
+        newActive = tabs[newIdx];
     }
     return newActive;
 }
 
+function getActive() {
+    return document.getElementsByClassName("active")[0];
+}
+
+function getTabList(filtered = false) {
+    let tabList = Array.from(document.getElementsByClassName("tab"));
+    return filtered
+        ? tabList.filter(item => !item.classList.contains("hidden"))
+        : tabList;
+}
+
 function switchTab(e) {
     if (document.activeElement !== search) {
-        let active = document.getElementsByClassName("active")[0];
+        let active = getActive();
         if (e.key === "j" || e.key === "ArrowDown") {
             active.classList.remove("active");
-            let newActive = findNextTab("nextSibling", active);
+            let newActive = findNextTab(1, active);
             newActive.classList.add("active");
             getOnScreen();
         } else if (e.key === "k" || e.key === "ArrowUp") {
             active.classList.remove("active");
-            let newActive = findNextTab("previousSibling", active);
+            let newActive = findNextTab(-1, active);
             newActive.classList.add("active");
             getOnScreen();
+        } else if (e.key === "g") {
+            let tabs = getTabList(true);
+            active.classList.remove("active");
+            tabs[0].classList.add("active");
+        } else if (e.key === "G") {
+            let tabs = getTabList(true);
+            active.classList.remove("active");
+            tabs[tabs.length - 1].classList.add("active");
         } else if (e.key === "Enter") {
-            let active = document.getElementsByClassName("active")[0];
-            browser.tabs.update(Number(active.dataset.id), { active: true });
+            let active = getActive();
+            if (active.classList.contains("dead")) {
+                browser.sessions.restore(active.dataset.id);
+            } else {
+                browser.tabs.update(Number(active.dataset.id), { active: true });
+            }
             window.close();
         } else if (e.key === "/") {
             if (search.value !== "") {
@@ -96,19 +118,19 @@ function switchTab(e) {
             window.close();
         }
     } else if (e.key === "Enter") {
-        let filtered = Array.from(document.getElementsByClassName("tab")).filter(
-            item => !item.classList.contains("hidden")
-        );
+        let filtered = getTabList(true);
         if (filtered.length !== 0) {
             filtered[0].classList.add("active");
             search.blur();
-            search.value = "";
+        }
+        if (search.value === "/") {
+            search.value = ""
         }
     }
 }
 
 function filter() {
-    let tabs = Array.from(document.getElementsByClassName("tab"));
+    let tabs = getTabList(false);
 
     if (!search.value.startsWith("/")) {
         search.value = "/" + search.value;
@@ -152,12 +174,20 @@ async function main() {
     getOnScreen();
 
     let res = await browser.storage.local.get();
+
+    let recentlyClosed = await browser.sessions.getRecentlyClosed(
+        res.maxDead > 0 ? { maxResults: res.maxDead } : {}
+    );
+    recentlyClosed
+        .filter(item => item.tab)
+        .map(item => item.tab)
+        .map(createTabs)
+        .forEach(item => item.classList.add("dead"));
+
     if (res.theme === "dark") {
         document.body.classList.add("dark");
         search.classList.add("dark");
-        Array.from(document.getElementsByClassName("tab")).forEach(item =>
-            item.classList.add("dark")
-        );
+        getTabList(false).forEach(item => item.classList.add("dark"));
     }
     search.dataset.mode = res.searchMode;
     search.dataset.case = res.caseSensitivity;

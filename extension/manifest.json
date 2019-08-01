@@ -14,7 +14,7 @@
     "background": {
         "scripts": ["bg.js"]
     },
-    "permissions": ["storage", "tabs"],
+    "permissions": ["storage", "tabs", "sessions"],
     "browser_action": {
         "browser_style": true,
         "default_popup": "index.html",
