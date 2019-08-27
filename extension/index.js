@@ -1,10 +1,12 @@
-const tabs_ele = document.getElementById("tabs");
-const search = document.getElementById("search");
+let $ = q => document.querySelector(q);
+let $$ = q => [...document.querySelectorAll(q)];
+const tabs_ele = $("#tabs");
+const search = $("#search");
 
 function getOnScreen() {
     // https://stackoverflow.com/a/10445639
     let tabs = getTabList(true);
-    let active = getActive();
+    let active = $(".active");
     if (tabs.indexOf(active) < 10) {
         window.scrollTo({
             top: 0,
@@ -26,8 +28,14 @@ function createTabs(info) {
     tab.classList.add("tab");
     if (info.active) {
         tab.classList.add("active");
+        tab.classList.add("original");
     }
-    tab.dataset.id = info.hasOwnProperty("id") ? info.id : info.sessionId;
+    if (Object.prototype.hasOwnProperty.call(info, "id")) {
+        tab.dataset.id = info.id;
+    } else if (Object.prototype.hasOwnProperty.call(info, "sessionId")) {
+        tab.dataset.id = info.sessionId;
+        tab.classList.add("dead");
+    }
     tab.dataset.name = info.title;
     tab.dataset.url = info.url;
 
@@ -64,12 +72,8 @@ function findNextTab(dir, active) {
     return newActive;
 }
 
-function getActive() {
-    return document.getElementsByClassName("active")[0];
-}
-
 function getTabList(filtered = false) {
-    let tabList = Array.from(document.getElementsByClassName("tab"));
+    let tabList = $$(".tab");
     return filtered
         ? tabList.filter(item => !item.classList.contains("hidden"))
         : tabList;
@@ -77,13 +81,13 @@ function getTabList(filtered = false) {
 
 function switchTab(e) {
     if (document.activeElement !== search) {
-        let active = getActive();
-        if (e.key === "j" || e.key === "ArrowDown") {
+        let active = $(".active");
+        if (e.key.toLowerCase() === "j" || e.key === "ArrowDown") {
             active.classList.remove("active");
             let newActive = findNextTab(1, active);
             newActive.classList.add("active");
             getOnScreen();
-        } else if (e.key === "k" || e.key === "ArrowUp") {
+        } else if (e.key.toLowerCase() === "k" || e.key === "ArrowUp") {
             active.classList.remove("active");
             let newActive = findNextTab(-1, active);
             newActive.classList.add("active");
@@ -92,12 +96,15 @@ function switchTab(e) {
             let tabs = getTabList(true);
             active.classList.remove("active");
             tabs[0].classList.add("active");
+            getOnScreen();
         } else if (e.key === "G") {
             let tabs = getTabList(true);
             active.classList.remove("active");
             tabs[tabs.length - 1].classList.add("active");
+            getOnScreen();
+        // } else if (e.key.toLowerCase() === "x") {
         } else if (e.key === "Enter") {
-            let active = getActive();
+            let active = $(".active");
             if (active.classList.contains("dead")) {
                 browser.sessions.restore(active.dataset.id);
             } else {
@@ -124,7 +131,7 @@ function switchTab(e) {
             search.blur();
         }
         if (search.value === "/") {
-            search.value = ""
+            search.value = "";
         }
     }
 }
@@ -175,14 +182,16 @@ async function main() {
 
     let res = await browser.storage.local.get();
 
-    let recentlyClosed = await browser.sessions.getRecentlyClosed(
-        res.maxDead > 0 ? { maxResults: res.maxDead } : {}
-    );
-    recentlyClosed
-        .filter(item => item.tab)
-        .map(item => item.tab)
-        .map(createTabs)
-        .forEach(item => item.classList.add("dead"));
+    if (res.showDead) {
+        let recentlyClosed = await browser.sessions.getRecentlyClosed(
+            res.maxDead > 0 ? { maxResults: res.maxDead } : {}
+        );
+
+        recentlyClosed
+            .filter(item => item.tab)
+            .map(item => item.tab)
+            .forEach(createTabs);
+    }
 
     if (res.theme === "dark") {
         document.body.classList.add("dark");
@@ -196,3 +205,5 @@ async function main() {
 document.addEventListener("keydown", switchTab);
 search.addEventListener("input", filter);
 document.addEventListener("DOMContentLoaded", main);
+document.addEventListener("focus", () => $("#overlay").style.display = "none");
+document.addEventListener("blur", () => $("#overlay").style.display = "flex");
