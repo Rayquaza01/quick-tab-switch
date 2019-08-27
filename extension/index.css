@@ -75,6 +75,19 @@ input {
     background-color: #702335;
 }
 
+#overlay {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, .5);
+}
+
 .hidden {
     display: none;
 }
