@@ -3,6 +3,6 @@
     "searchMode": "string",
     "caseSensitivity": "nocase",
     "theme": "light",
-    "showDead": true,
+    "showDead": false,
     "maxDead": 5
 }
