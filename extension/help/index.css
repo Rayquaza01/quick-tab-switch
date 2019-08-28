@@ -4,6 +4,10 @@ body {
     margin-right: 5%;
 }
 
+.center {
+    text-align: center;
+}
+
 .dead {
     text-decoration: line-through;
     color: #F44336;

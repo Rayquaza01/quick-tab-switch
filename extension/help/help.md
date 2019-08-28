@@ -2,7 +2,7 @@
 
 This is the main display for Quick Tab Switcher:
 
-<center>![](qts-light.png)</center>
+![](qts-light.png)
 
 It displays the tabs that are open in the current window, with their favicons, page title, and URL.
 
