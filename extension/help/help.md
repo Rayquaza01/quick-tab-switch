@@ -18,7 +18,7 @@ You can navigate with keyboard shortcuts (shown at the bottom of the popup)
 
 When the popup is out of focus, you can't use keyboard shortcuts. An error will show alerting you that the popup is out of focus:
 
-<center>![](qts-no-focus.png)</center>
+![](qts-no-focus.png)
 
 When this happens, close and reopen the popup, or click inside the popup to focus it.
 
@@ -26,7 +26,7 @@ When this happens, close and reopen the popup, or click inside the popup to focu
 
 The settings page looks like this:
 
-<center>![](qts-options.png)</center>
+![](qts-options.png)
 
 ## Shortcut
 The shortcut option decides which keyboard shortcut opens the popup. It defaults to Ctrl+Shift+B.  
@@ -40,18 +40,18 @@ If search mode is normal (default), it will show only the items that contain the
 
 Here is an example of the search (regex mode) showing only tabs with http or https in the title or URL:
 
-<center>![](qts-search-regex.png)</center>
+![](qts-search-regex.png)
 
 The case sensitivity option allows you to ignore or enforce CaPItAl leTteRs. (Default Insensitive)
 
 ## Recently Closed Tabs
 If you enable recently closed tabs, you can see tabs that you recently closed. They will be shown with <span class="dead">red text and strikethrough</span> to show that they were closed. Selecting one of these will open the tab again.
 
-<center>![](qts-dead-tabs.png)</center>
+![](qts-dead-tabs.png)
 
 You can select how many recently closed tabs to show in the list at a time (Default 5). 0 is unlimited recently closed tabs.
 
 ## UI
 You can select the theme of the extension. The light theme was shown above, here is an example of the dark theme:
 
-<center>![](qts-dark.png)</center>
+![](qts-dark.png)
