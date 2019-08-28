@@ -1,0 +1,10 @@
+body {
+    font-family: sans-serif;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.dead {
+    text-decoration: line-through;
+    color: #F44336;
+}

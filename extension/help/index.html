@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Quick Tab Switcher Help</title>
+  <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="index.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="quick-tab-switcher-help">Quick Tab Switcher Help</h1>
+<p>This is the main display for Quick Tab Switcher:</p>
+<center>
+<img src="qts-light.png" />
+</center>
+<p>It displays the tabs that are open in the current window, with their favicons, page title, and URL.</p>
+<p>You can navigate with keyboard shortcuts (shown at the bottom of the popup)</p>
+<ul>
+<li>Pressing J or ↓ will select the next (below) tab, and pressing K or ↑ will select the previous (above) tab.
+<ul>
+<li>These will wrap around. (Pressing ↓ on the last tab will wrap arount to the first tab, etc.)</li>
+</ul></li>
+<li>Pressing g will select the top tab, and G will select the bottom tab.</li>
+<li>Pressing Enter will switch to the selected tab and close the popup.</li>
+<li>Pressing s will open the <a href="#settings">settings</a> for the extension.</li>
+<li>Pressing ? will open this page.</li>
+<li>Pressing / will focus the <a href="#search">search box</a>.</li>
+</ul>
+<p>When the popup is out of focus, you can’t use keyboard shortcuts. An error will show alerting you that the popup is out of focus:</p>
+<center>
+<img src="qts-no-focus.png" />
+</center>
+<p>When this happens, close and reopen the popup, or click inside the popup to focus it.</p>
+<h1 id="settings">Settings</h1>
+<p>The settings page looks like this:</p>
+<center>
+<img src="qts-options.png" />
+</center>
+<h2 id="shortcut">Shortcut</h2>
+<p>The shortcut option decides which keyboard shortcut opens the popup. It defaults to Ctrl+Shift+B.<br />
+You can see what makes up a valid shortcut on <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#Key_combinations">MDN</a></p>
+<h2 id="search">Search</h2>
+<p>The search options affect how the search box in the popup works. The search is run on the page title and URL for each tab.<br />
+Press Enter after you enter your search term to put the cursor back on the tab list.</p>
+<p>If search mode is normal (default), it will show only the items that contain the search term. If search mode is regex, you can use <a href="https://en.wikipedia.org/wiki/Regular_expression">regular expressions</a> in your search terms.</p>
+<p>Here is an example of the search (regex mode) showing only tabs with http or https in the title or URL:</p>
+<center>
+<img src="qts-search-regex.png" />
+</center>
+<p>The case sensitivity option allows you to ignore or enforce CaPItAl leTteRs. (Default Insensitive)</p>
+<h2 id="recently-closed-tabs">Recently Closed Tabs</h2>
+<p>If you enable recently closed tabs, you can see tabs that you recently closed. They will be shown with <span class="dead">red text and strikethrough</span> to show that they were closed. Selecting one of these will open the tab again.</p>
+<center>
+<img src="qts-dead-tabs.png" />
+</center>
+<p>You can select how many recently closed tabs to show in the list at a time (Default 5). 0 is unlimited recently closed tabs.</p>
+<h2 id="ui">UI</h2>
+<p>You can select the theme of the extension. The light theme was shown above, here is an example of the dark theme:</p>
+<center>
+<img src="qts-dark.png" />
+</center>
+</body>
+</html>
