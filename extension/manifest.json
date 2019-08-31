@@ -23,7 +23,7 @@
             {
                 "light": "icons/icon-light.png",
                 "dark": "icons/icon.png",
-                "size": 16
+                "size": 96
             }
         ]
     },
