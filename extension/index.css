@@ -76,7 +76,7 @@ input {
 }
 
 #overlay {
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
@@ -85,7 +85,22 @@ input {
     z-index: 1;
     height: 100%;
     width: 100%;
-    background-color: rgba(255, 255, 255, .5);
+    background-color: rgba(255, 255, 255, .75);
+}
+
+#overlay.dark {
+    background-color: rgba(18, 18, 20, .75);
+}
+
+#overlay span {
+    color: white;
+    background-color: #F33F00;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+#overlay.dark span {
+    background-color: #4424E3;
 }
 
 .hidden {
