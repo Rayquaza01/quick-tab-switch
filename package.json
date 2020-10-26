@@ -4,25 +4,32 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "web-ext lint --source-dir ./extension",
-    "build": "web-ext build -s ./extension",
-    "build:web": "python ./bin/build.py --",
-    "firefox": "web-ext run --source-dir ./extension --"
+    "clean": "mkdir -p dist && rm -rf dist/*",
+    "firefox": "web-ext run -s dist",
+    "build:help": "soffice --headless --convert-to pdf --outdir dist help.fodt",
+    "build:assets": "cpx src/**/*.{json,png,svg} dist",
+    "build:extension": "run-s clean build:help build:assets build:bundle",
+    "build:bundle": "parcel build src/**/*.html src/background.js",
+    "build:devbundle": "parcel watch src/**/*.html src/background.ts --no-minify",
+    "build:devassets": "cpx src/**/*.{json,png,svg} dist -w",
+    "build:devextension": "npm-run-all --parallel build:devassets build:devbundle firefox"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Rayquaza01/quick-tab-switcher.git"
   },
-  "author": "Rayquaza01",
+  "author": "Joe Jarvis",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Rayquaza01/quick-tab-switcher/issues"
   },
   "homepage": "https://github.com/Rayquaza01/quick-tab-switcher#readme",
   "dependencies": {
-    "sass": "^1.22.9",
-    "eslint": "^5.7.0",
-    "prettier": "^1.14.3",
-    "web-ext": "^2.9.1"
+    "cpx": "^1.5.0",
+    "npm-run-all": "^4.1.5",
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^4.0.3",
+    "web-ext": "^5.3.0",
+    "webextension-polyfill-ts": "^0.21.0"
   }
 }
