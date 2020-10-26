@@ -1,3 +1,5 @@
+import { browser } from "webextension-polyfill-ts";
+
 function defaultValues(object, settings) {
     for (let key in settings) {
         if (!object.hasOwnProperty(key)) {

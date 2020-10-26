@@ -12,12 +12,12 @@
         "96": "icons/icon-96.png"
     },
     "background": {
-        "scripts": ["background.js"]
+        "scripts": ["background.ts"]
     },
     "permissions": ["storage", "tabs", "sessions"],
     "browser_action": {
         "browser_style": true,
-        "default_popup": "index.html",
+        "default_popup": "popup.html",
         "default_icon": "icons/icon.png",
         "theme_icons": [
             {

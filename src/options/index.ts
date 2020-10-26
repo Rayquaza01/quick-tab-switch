@@ -1,10 +1,9 @@
-let $ = q => document.querySelector(q);
-const shortcut = $("#shortcut");
-const searchMode = $("#searchMode");
-const caseSensitivity = $("#caseSensitivity");
-const theme = $("#theme");
-const showDead = $("#showDead");
-const maxDead = $("#maxDead");
+const shortcut = document.querySelector("#shortcut");
+const searchMode = document.querySelector("#searchMode");
+const caseSensitivity = document.querySelector("#caseSensitivity");
+const showDead = document.querySelector("#showDead");
+const maxDead = document.querySelector("#maxDead");
+const theme = document.querySelector("#theme");
 
 async function load() {
     let res = await browser.storage.local.get();
