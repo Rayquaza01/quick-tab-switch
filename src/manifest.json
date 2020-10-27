@@ -12,7 +12,7 @@
         "96": "icons/icon-96.png"
     },
     "background": {
-        "scripts": ["background.ts"]
+        "scripts": ["background.js"]
     },
     "permissions": ["storage", "tabs", "sessions"],
     "browser_action": {

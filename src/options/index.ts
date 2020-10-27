@@ -21,7 +21,7 @@ function save() {
     browser.storage.local.set({
         shortcut: shortcut.value,
         searchMode: searchMode.value,
-        caseSensitivity: caseSensitivity.value,
+        caseSensitivity: JSON.parse(caseSensitivity.value),
         theme: theme.value,
         showDead: JSON.parse(showDead.value),
         maxDead: Number(maxDead.value)
