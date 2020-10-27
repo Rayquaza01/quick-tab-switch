@@ -23,7 +23,7 @@ export class TabElement {
             this.element.appendChild(img);
         }
 
-        let text: HTMLSpanElement = document.createElement("span");
+        let text: HTMLDivElement = document.createElement("div");
         text.innerText = name + " | " + url;
         this.element.appendChild(text);
 
