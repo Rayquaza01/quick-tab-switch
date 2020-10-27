@@ -3,35 +3,40 @@
     <head>
         <meta charset="utf-8">
         <title>Options</title>
+        <link rel="stylesheet" type="text/css" href="options/index.css">
     </head>
     <body>
         <h3>Shortcut</h3>
-         <input id="shortcut" type="text">
-         <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#Key_combinations">Valid Shortcuts</a>
+        <input id="shortcut" type="text">
+        <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#Key_combinations">Valid Shortcuts</a>
         <h3>Search</h3>
         <div>
+          <div class="option">
             Search Mode:
             <select id="searchMode">
-                <option value="string">Normal</option>
-                <option value="regex">RegEx</option>
+              <option value="string">Normal</option>
+              <option value="regex">RegEx</option>
             </select>
-        </div>
-        <div>
+
             Case Sensitivity:
             <select id="caseSensitivity">
-                <option value=false>Case Insensitive</option>
-                <option value=true>Case Sensitive</option>
+              <option value=false>Case Insensitive</option>
+              <option value=true>Case Sensitive</option>
             </select>
+          </div>
         </div>
         <h3>Recently Closed Tabs</h3>
         <div>
-            Show Recently Closed: <select id="showDead">
-                <option value="true">Show Recently Closed Tabs</option>
-                <option value="false">Don't Show Recently Closed Tabs</option>
+          <div class="option">
+            Show Recently Closed:
+            <select id="showDead">
+              <option value="true">Show Recently Closed Tabs</option>
+              <option value="false">Don't Show Recently Closed Tabs</option>
             </select>
-        </div>
-        <div>
-            Maximux Number of Recently Closed Tabs (0 is unlimited): <input id="maxDead" type="number">
+
+            Maximux Number of Recently Closed Tabs (0 is unlimited):
+            <input id="maxDead" type="number">
+          </div>
         </div>
         <h3>UI</h3>
         <div>
