@@ -8,11 +8,12 @@
     "firefox": "web-ext run -s dist",
     "build:help": "soffice --headless --convert-to pdf --outdir dist help.fodt",
     "build:assets": "cpx src/**/*.{json,png,svg} dist",
-    "build:extension": "run-s clean build:help build:assets build:bundle",
     "build:bundle": "parcel build src/**/*.html src/background.js",
-    "build:devbundle": "parcel watch src/**/*.html src/background.ts --no-hmr",
-    "build:devassets": "cpx src/**/*.{json,png,svg} dist -w",
-    "build:devextension": "npm-run-all clean --parallel build:devassets build:devbundle"
+    "build:extension": "web-ext build -s dist",
+    "build:complete": "run-s clean build:help build:assets build:bundle build:extension",
+    "watch:assets": "cpx src/**/*.{json,png,svg} dist -w",
+    "watch:bundle": "parcel watch src/**/*.html src/background.ts --no-hmr",
+    "watch:extension": "npm-run-all clean --parallel watch:assets watch:bundle"
   },
   "repository": {
     "type": "git",
