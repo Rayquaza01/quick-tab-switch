@@ -1,18 +1,29 @@
 import { OptionsInterface } from "../OptionsInterface";
 import { TabElement } from "./TabElement";
 
+/** List of TabElements */
 export class TabList {
     private list: TabElement[];
     private searchMode: OptionsInterface["searchMode"];
     private caseSensitivity: OptionsInterface["caseSensitivity"];
 
+    /**
+     * Create list of tab elements
+     * @param list - A list of tab elements
+     * @param searchMode - Normal or Regex search
+     * @param caseSensitivity - Is search case sensitive
+     */
     constructor(list: TabElement[], searchMode: OptionsInterface["searchMode"], caseSensitivity: OptionsInterface["caseSensitivity"]) {
         this.list = list;
         this.searchMode = searchMode;
         this.caseSensitivity = caseSensitivity;
     }
 
-    filter(filterText: string) {
+    /**
+     * Filters list based on search term
+     * @param filterText - Search term to use
+     */
+    filter(filterText: string): void {
         if (this.searchMode === "regex") {
             // create regex
             let regex = new RegExp(
@@ -44,6 +55,10 @@ export class TabList {
         }
     }
 
+    /**
+     * Get list of TabElements
+     * @param filtered - Return filtered list
+     */
     getList(filtered: boolean = false): TabElement[] {
         if (filtered) {
             return this.list.filter(item => !item.isHidden)
@@ -52,14 +67,20 @@ export class TabList {
         }
     }
 
+    /** Get active element from list */
     getActive(): TabElement {
         return this.getList(true).find(item => item.isActive);
     }
 
+    /** Get index of active element from list */
     getActiveIndex(): number {
         return this.getList(true).findIndex(item => item.isActive);
     }
 
+    /**
+     * Get item in position on filtered list
+     * @param pos - Position on list to get. pos < 0 returns last item, pos > filtered list length returns first item.
+     */
     at(pos: number): TabElement {
         let list = this.getList(true);
         if (pos < 0) {

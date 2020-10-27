@@ -125,6 +125,7 @@ function switchTab(e: KeyboardEvent) {
     }
 }
 
+/** Filter tabList using value from search box */
 function filter(): void {
     // filter tabs based on search box
     if (!search.value.startsWith("/")) {
@@ -141,15 +142,18 @@ function filter(): void {
     }
 }
 
-async function main() {
+async function main(): Promise<void> {
     // hide overlay if in focus
     if (document.hasFocus()) {
         overlay.style.display = "none";
     }
 
+    // get tabs
     let tabs = await browser.tabs.query({ currentWindow: true });
+    // create html elements from tab query
     let tabEles = tabs.map(createTabs);
 
+    // get options
     let res: OptionsInterface = await browser.storage.local.get() as OptionsInterface;
 
     if (res.showDead) {
