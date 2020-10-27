@@ -12,37 +12,35 @@ export class TabList {
         this.caseSensitivity = caseSensitivity;
     }
 
-    filter(filter?: string) {
-        if (filter !== undefined && filter !== "") {
-            if (this.searchMode === "regex") {
-                // create regex
-                let regex = new RegExp(
-                    filter,
-                    this.caseSensitivity ? "" : "i"
-                );
-                this.list.forEach(item => {
-                    if (item.getName.match(regex) || item.getURL.match(regex)) {
-                        item.setHidden = true;
-                    } else {
-                        item.setHidden = false;
-                    }
-                })
-            } else if (this.searchMode === "string") {
-                this.list.forEach(item => {
-                    // create array of search term, url, and title
-                    let terms = [filter, item.getURL, item.getName];
-                    // switch to lowercase if case insensitive
-                    if (!this.caseSensitivity) {
-                        terms = terms.map(x => x.toLowerCase());
-                    }
-                    // if url contains term OR title contains term
-                    if (terms[1].indexOf(terms[0]) !== -1 || terms[2].indexOf(terms[0]) !== -1) {
-                        item.setHidden = false;
-                    } else {
-                        item.setHidden = true;
-                    }
-                });
-            }
+    filter(filterText: string) {
+        if (this.searchMode === "regex") {
+            // create regex
+            let regex = new RegExp(
+                filterText,
+                this.caseSensitivity ? "" : "i"
+            );
+            this.list.forEach(item => {
+                if (item.getName.match(regex) || item.getURL.match(regex)) {
+                    item.setHidden = false;
+                } else {
+                    item.setHidden = true;
+                }
+            })
+        } else if (this.searchMode === "string") {
+            this.list.forEach(item => {
+                // create array of search term, url, and title
+                let terms = [filterText, item.getURL, item.getName];
+                // switch to lowercase if case insensitive
+                if (!this.caseSensitivity) {
+                    terms = terms.map(x => x.toLowerCase());
+                }
+                // if url contains term OR title contains term
+                if (terms[1].indexOf(terms[0]) !== -1 || terms[2].indexOf(terms[0]) !== -1) {
+                    item.setHidden = false;
+                } else {
+                    item.setHidden = true;
+                }
+            });
         }
     }
 

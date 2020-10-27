@@ -1,5 +1,4 @@
-import { browser } from "webextension-polyfill-ts";
-import { Tabs } from "webextension-polyfill-ts";
+import { browser, Tabs } from "webextension-polyfill-ts";
 import { TabElement } from "./TabElement";
 import { TabList } from "./TabList";
 import { OptionsInterface } from "../OptionsInterface";
@@ -57,15 +56,6 @@ function createTabs(info: Tabs.Tab): TabElement {
     }
 
     return new TabElement(id, name, url, favicon, dead, active);
-}
-
-function findNextTab(dir: 1 | -1): number {
-    // Get the active tab in a direction
-    // dir is the direction, +1 (down) or -1 (up)
-    // active is the active tab
-
-    let idx = tabList.getActiveIndex();
-    return (idx + dir) % tabList.getList(true).length;
 }
 
 function switchTab(e: KeyboardEvent) {
