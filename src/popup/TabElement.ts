@@ -15,6 +15,7 @@ export class TabElement {
         this.active = active;
 
         this.element = document.createElement("div");
+        this.element.classList.add("tab");
 
         if (favicon !== "") {
             let img: HTMLImageElement = document.createElement("img");

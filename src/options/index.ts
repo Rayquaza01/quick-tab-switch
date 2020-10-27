@@ -1,9 +1,11 @@
-const shortcut = document.querySelector("#shortcut");
-const searchMode = document.querySelector("#searchMode");
-const caseSensitivity = document.querySelector("#caseSensitivity");
-const showDead = document.querySelector("#showDead");
-const maxDead = document.querySelector("#maxDead");
-const theme = document.querySelector("#theme");
+import { browser } from "webextension-polyfill-ts";
+
+const shortcut: HTMLInputElement = document.querySelector("#shortcut");
+const searchMode: HTMLSelectElement = document.querySelector("#searchMode");
+const caseSensitivity: HTMLSelectElement = document.querySelector("#caseSensitivity");
+const showDead: HTMLSelectElement = document.querySelector("#showDead");
+const maxDead: HTMLInputElement = document.querySelector("#maxDead");
+const theme: HTMLSelectElement = document.querySelector("#theme");
 
 async function load() {
     let res = await browser.storage.local.get();

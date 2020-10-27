@@ -1,7 +1,7 @@
 {
     "shortcut": "Ctrl+Shift+B",
     "searchMode": "string",
-    "caseSensitivity": "nocase",
+    "caseSensitivity": false,
     "theme": "light",
     "showDead": false,
     "maxDead": 5

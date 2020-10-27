@@ -10,9 +10,9 @@
     "build:assets": "cpx src/**/*.{json,png,svg} dist",
     "build:extension": "run-s clean build:help build:assets build:bundle",
     "build:bundle": "parcel build src/**/*.html src/background.js",
-    "build:devbundle": "parcel watch src/**/*.html src/background.ts --no-minify",
+    "build:devbundle": "parcel watch src/**/*.html src/background.ts --no-hmr",
     "build:devassets": "cpx src/**/*.{json,png,svg} dist -w",
-    "build:devextension": "npm-run-all --parallel build:devassets build:devbundle firefox"
+    "build:devextension": "npm-run-all clean --parallel build:devassets build:devbundle"
   },
   "repository": {
     "type": "git",
