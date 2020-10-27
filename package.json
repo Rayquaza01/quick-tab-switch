@@ -9,10 +9,10 @@
     "build:help": "soffice --headless --convert-to pdf --outdir dist help.fodt",
     "build:assets": "cpx src/**/*.{json,png,svg} dist",
     "build:bundle": "parcel build src/**/*.html src/background.js",
-    "build:extension": "web-ext build -s dist",
+    "build:extension": "web-ext build -s dist --overwrite-dest",
     "build:complete": "run-s clean build:help build:assets build:bundle build:extension",
     "watch:assets": "cpx src/**/*.{json,png,svg} dist -w",
-    "watch:bundle": "parcel watch src/**/*.html src/background.ts --no-hmr",
+    "watch:bundle": "parcel watch src/**/*.html src/background.ts --no-hmr --no-autoinstall",
     "watch:extension": "npm-run-all clean --parallel watch:assets watch:bundle"
   },
   "repository": {
