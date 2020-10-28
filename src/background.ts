@@ -1,22 +1,24 @@
 import { browser, Runtime } from "webextension-polyfill-ts";
 import { OptionsInterface, DefaultOptions } from "./OptionsInterface";
 
+/**
+ * Initialize object with default values
+ * @param object - Object to initilize
+ * @param settings - Object with efault values
+ */
 function defaultValues(object: any, settings: OptionsInterface): OptionsInterface {
     for (let key of Object.keys(settings)) {
-        if (!Object.prototype.hasOwnProperty.call(object, key)) {
-            object[key] = settings[key];
-        }
+        object[key] ??= settings[key];
     }
-
     return object;
 }
 
-async function startup() {
+/** Runs on startup, updates keyboard shortcut */
+async function startup(): Promise<void> {
     let res = await browser.storage.local.get();
-    res = defaultValues(res, DefaultOptions);
     browser.commands.update({
         name: "_execute_browser_action",
-        shortcut: res.hasOwnProperty("shortcut") ? res.shortcut : "Ctrl+Shift+B"
+        shortcut: res.shortcut ?? DefaultOptions.shortcut
     });
 }
 
