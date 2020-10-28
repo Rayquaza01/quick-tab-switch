@@ -1,6 +1,10 @@
 import { OptionsInterface } from "../OptionsInterface";
 import { TabElement } from "./TabElement";
 
+function mod(n: number, m: number) {
+    return ((n % m) + m) % m;
+}
+
 /** List of TabElements */
 export class TabList {
     private list: TabElement[];
@@ -79,15 +83,10 @@ export class TabList {
 
     /**
      * Get item in position on filtered list
-     * @param pos - Position on list to get. pos < 0 returns last item, pos > filtered list length returns first item.
+     * @param pos - Position on list to get. Positions outside the bounds of the array wrap.
      */
     at(pos: number): TabElement {
         let list = this.getList(true);
-        if (pos < 0) {
-            pos = list.length - 1;
-        } else if (pos > list.length - 1) {
-            pos = 0
-        }
-        return list[pos];
+        return list[mod(pos, list.length)];
     }
 }
