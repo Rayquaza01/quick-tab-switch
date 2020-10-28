@@ -6,7 +6,7 @@ Open the popup and press J (&darr;) or K (&uarr;) to scroll through the tab list
 See [Help](https://github.com/Rayquaza01/quick-tab-switch/blob/master/src/help.pdf) for more info.
 
 # Building
-See build.md
+See BUILD.md
 
 # Credits
 Using:
