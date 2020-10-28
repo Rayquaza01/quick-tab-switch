@@ -89,6 +89,7 @@ export class TabElement {
         return this.hidden;
     }
 
+    /** Hide / unhide the tab on the page */
     set setHidden(val: boolean) {
         this.hidden = val;
         if (val) {
@@ -98,6 +99,7 @@ export class TabElement {
         }
     }
 
+    /** Get the HTML element on the page */
     get getElement() {
         return this.element;
     }

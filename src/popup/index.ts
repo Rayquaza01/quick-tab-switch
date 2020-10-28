@@ -3,15 +3,15 @@ import { TabElement } from "./TabElement";
 import { TabList } from "./TabList";
 import { OptionsInterface } from "../OptionsInterface";
 
+/** List of tabs on the page */
 let tabList: TabList;
 
 const tabs_ele: HTMLDivElement = document.querySelector("#tabs");
 const search: HTMLInputElement = document.querySelector("#search");
 const overlay: HTMLDivElement = document.querySelector("#overlay");
 
+/** Scroll to the active element */
 function getOnScreen() {
-    // scroll to the active element
-
     // https://stackoverflow.com/a/10445639
     if (tabList.getActiveIndex() < 10) {
         window.scrollTo({
@@ -29,6 +29,7 @@ function getOnScreen() {
     }
 }
 
+/** Create tab elements from tab query */
 function createTabs(info: Tabs.Tab): TabElement {
     let id: string;
     let name: string = info.title;
@@ -58,6 +59,7 @@ function createTabs(info: Tabs.Tab): TabElement {
     return new TabElement(id, name, url, favicon, dead, active);
 }
 
+/** Keyboard listener */
 function switchTab(e: KeyboardEvent) {
     if (document.activeElement !== search) {
         e.preventDefault();
@@ -183,8 +185,12 @@ async function main(): Promise<void> {
     tabList = new TabList(tabEles, res.searchMode, res.caseSensitivity)
 }
 
+// keyboard event
 document.addEventListener("keydown", switchTab);
+// filter when updating search box
 search.addEventListener("input", filter);
-document.addEventListener("DOMContentLoaded", main);
+// show / hide out of focus error
 document.addEventListener("focus", () => (overlay.style.display = "none"));
 document.addEventListener("blur", () => (overlay.style.display = "flex"));
+
+document.addEventListener("DOMContentLoaded", main);

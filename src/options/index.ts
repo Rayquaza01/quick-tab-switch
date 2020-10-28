@@ -7,6 +7,7 @@ const showDead: HTMLSelectElement = document.querySelector("#showDead");
 const maxDead: HTMLInputElement = document.querySelector("#maxDead");
 const theme: HTMLSelectElement = document.querySelector("#theme");
 
+/** Loads from storage onto page */
 async function load() {
     let res = await browser.storage.local.get();
     shortcut.value = res.shortcut;
@@ -17,6 +18,7 @@ async function load() {
     maxDead.value = res.maxDead;
 }
 
+/** Saves from form on page to storage */
 function save() {
     browser.storage.local.set({
         shortcut: shortcut.value,
