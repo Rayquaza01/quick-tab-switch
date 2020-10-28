@@ -3,4 +3,13 @@ A quick tab switcher for Firefox.
 
 Open the popup and press J (&darr;) or K (&uarr;) to scroll through the tab list. Press enter to switch to the highlighted tab.
 
-See [Help](https://github.com/Rayquaza01/quick-tab-switch/blob/master/help.pdf) for more info.
+See [Help](https://github.com/Rayquaza01/quick-tab-switch/blob/master/src/help.pdf) for more info.
+
+# Building
+See build.md
+
+# Credits
+Using:
+ * [TypeScript](https://typescriptlang.org)
+ * [Parcel](https://parceljs.org)
+ * [webextension-polyfill-ts](https://github.com/Lusito/webextension-polyfill-ts)
