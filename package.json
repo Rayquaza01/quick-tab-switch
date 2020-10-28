@@ -8,7 +8,7 @@
     "firefox": "web-ext run -s dist",
     "build:help": "soffice --headless --convert-to pdf --outdir src help.fodt",
     "build:assets": "cpx src/**/*.{json,png,svg,pdf} dist",
-    "build:bundle": "parcel build src/**/*.html src/background.js",
+    "build:bundle": "parcel build src/**/*.html src/background.ts",
     "build:extension": "web-ext build -s dist --overwrite-dest",
     "build:complete": "run-s clean build:assets build:bundle build:extension",
     "watch:assets": "cpx src/**/*.{json,png,svg,pdf} dist -w",
