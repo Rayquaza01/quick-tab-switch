@@ -1,3 +1,4 @@
+require("./index.css");
 import { browser } from "webextension-polyfill-ts";
 
 const shortcut: HTMLInputElement = document.querySelector("#shortcut");
