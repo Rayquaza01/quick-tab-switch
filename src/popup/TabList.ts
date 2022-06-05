@@ -30,7 +30,7 @@ export class TabList {
     filter(filterText: string): void {
         if (this.searchMode === "regex") {
             // create regex
-            let regex = new RegExp(
+            const regex = new RegExp(
                 filterText,
                 this.caseSensitivity ? "" : "i"
             );
@@ -40,7 +40,7 @@ export class TabList {
                 } else {
                     item.setHidden = true;
                 }
-            })
+            });
         } else if (this.searchMode === "string") {
             this.list.forEach(item => {
                 // create array of search term, url, and title
@@ -63,9 +63,9 @@ export class TabList {
      * Get list of TabElements
      * @param filtered - Return filtered list
      */
-    getList(filtered: boolean = false): TabElement[] {
+    getList(filtered = false): TabElement[] {
         if (filtered) {
-            return this.list.filter(item => !item.isHidden)
+            return this.list.filter(item => !item.isHidden);
         } else {
             return this.list;
         }
@@ -73,7 +73,7 @@ export class TabList {
 
     /** Get active element from list */
     getActive(): TabElement {
-        return this.getList(true).find(item => item.isActive);
+        return this.getList(true).find(item => item.isActive) as TabElement;
     }
 
     /** Get index of active element from list */
@@ -86,7 +86,7 @@ export class TabList {
      * @param pos - Position on list to get. Positions outside the bounds of the array wrap.
      */
     at(pos: number): TabElement {
-        let list = this.getList(true);
+        const list = this.getList(true);
         return list[mod(pos, list.length)];
     }
 }
