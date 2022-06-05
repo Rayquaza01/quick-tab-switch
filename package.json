@@ -4,16 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clean": "mkdir -p dist && rm -rf dist/*",
     "firefox": "web-ext run -s dist",
-    "build:help": "soffice --headless --convert-to pdf --outdir src help.fodt",
-    "build:assets": "cpx src/**/*.{json,png,svg,pdf} dist",
-    "build:bundle": "parcel build src/**/*.html src/background.ts",
-    "build:extension": "web-ext build -s dist --overwrite-dest",
-    "build:complete": "run-s clean build:assets build:bundle build:extension",
-    "watch:assets": "cpx src/**/*.{json,png,svg,pdf} dist -w",
-    "watch:bundle": "parcel watch src/**/*.html src/background.ts --no-hmr --no-autoinstall",
-    "watch:extension": "npm-run-all clean --parallel watch:assets watch:bundle"
+    "build:production": "webpack --config webpack.config.js --mode=production",
+    "build:development": "webpack --config webpack.config.js --mode=development --watch",
+    "build:extension": "web-ext build -s dist"
   },
   "repository": {
     "type": "git",
