@@ -7,9 +7,9 @@ import { OptionsInterface } from "../OptionsInterface";
 /** List of tabs on the page */
 let tabList: TabList;
 
-const tabs_ele: HTMLDivElement = document.querySelector("#tabs");
-const search: HTMLInputElement = document.querySelector("#search");
-const overlay: HTMLDivElement = document.querySelector("#overlay");
+const tabs_ele = document.querySelector("#tabs") as HTMLDivElement;
+const search = document.querySelector("#search") as HTMLInputElement;
+const overlay = document.querySelector("#overlay") as HTMLDivElement;
 
 /** Scroll to the active element */
 function getOnScreen() {
@@ -21,7 +21,7 @@ function getOnScreen() {
             behavior: "smooth"
         });
     } else {
-        let rect = tabList.getActive().getElement.getBoundingClientRect();
+        const rect = tabList.getActive().getElement.getBoundingClientRect();
         window.scrollTo({
             top: rect.top + window.pageYOffset - document.documentElement.clientTop,
             left: 0,
@@ -32,26 +32,26 @@ function getOnScreen() {
 
 /** Create tab elements from tab query */
 function createTabs(info: Tabs.Tab): TabElement {
-    let id: string;
-    let name: string = info.title;
-    let url: string = info.url;
-    let favicon: string = "";
-    let dead: boolean = false;
-    let active: boolean = false;
+    let id = "";
+    const name = info.title ?? "";
+    const url = info.url ?? "";
+    let favicon = "";
+    let dead = false;
+    let active = false;
 
     if (info.active) {
         active = true;
     }
 
     if (Object.prototype.hasOwnProperty.call(info, "id")) {
-        id = info.id.toString();
+        id = info.id?.toString() ?? "";
     } else if (Object.prototype.hasOwnProperty.call(info, "sessionId")) {
-        id = info.sessionId;
-        dead = true
+        id = info.sessionId ?? "";
+        dead = true;
     }
 
     if (info.favIconUrl !== undefined && info.favIconUrl !== "") {
-        let url = new URL(info.favIconUrl);
+        const url = new URL(info.favIconUrl);
         if (url.protocol.match(/data|https?/)) {
             favicon = info.favIconUrl;
         }
@@ -64,8 +64,8 @@ function createTabs(info: Tabs.Tab): TabElement {
 function switchTab(e: KeyboardEvent) {
     if (document.activeElement !== search) {
         e.preventDefault();
-        let active = tabList.getActive();
-        let activeIdx = tabList.getActiveIndex();
+        const active = tabList.getActive();
+        const activeIdx = tabList.getActiveIndex();
         if (e.key.toLowerCase() === "j" || e.key === "ArrowDown") {
             // scroll down with j, J or down arrow
             active.setActive = false;
@@ -152,38 +152,45 @@ async function main(): Promise<void> {
     }
 
     // get tabs
-    let tabs = await browser.tabs.query({ currentWindow: true });
+    const tabs = await browser.tabs.query({ currentWindow: true });
     // create html elements from tab query
     let tabEles = tabs.map(createTabs);
 
     // get options
-    let res: OptionsInterface = await browser.storage.local.get() as OptionsInterface;
+    const res = await browser.storage.local.get() as OptionsInterface;
 
     if (res.showDead) {
         // get recently closed, with limit or unlimited if maxDead is 0
-        let recentlyClosed = await browser.sessions.getRecentlyClosed(
+        const recentlyClosed = await browser.sessions.getRecentlyClosed(
             res.maxDead > 0 ? { maxResults: res.maxDead } : {}
         );
 
         tabEles = tabEles.concat(
             recentlyClosed
                 .filter(item => Object.prototype.hasOwnProperty.call(item, "tab")) // filter out recently closed windows
-                .map(item => item.tab) // move tab element to top
+                .map(item => item.tab as Tabs.Tab) // move tab element to top; typecast since element cannot be undefined
+                .filter(item => item)
                 .map(createTabs)
         );
     }
 
-    tabEles.forEach(item => tabs_ele.appendChild(item.getElement));
+    tabEles.forEach(item => {
+        if (item !== undefined)
+            tabs_ele.appendChild(item.getElement);
+    });
 
     // make things dark
     if (res.theme === "dark") {
         document.body.classList.add("dark");
         search.classList.add("dark");
         overlay.classList.add("dark");
-        tabEles.forEach(item => item.getElement.classList.add("dark"));
+        tabEles.forEach(item => {
+            if (item !== undefined)
+                item.getElement.classList.add("dark");
+        });
     }
 
-    tabList = new TabList(tabEles, res.searchMode, res.caseSensitivity)
+    tabList = new TabList(tabEles, res.searchMode, res.caseSensitivity);
 }
 
 // keyboard event
