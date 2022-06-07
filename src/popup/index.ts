@@ -2,7 +2,7 @@ require("./index.css");
 import { browser, Tabs } from "webextension-polyfill-ts";
 import { TabElement } from "./TabElement";
 import { TabList } from "./TabList";
-import { OptionsInterface } from "../OptionsInterface";
+import { Options, Themes } from "../OptionsInterface";
 
 /** List of tabs on the page */
 let tabList: TabList;
@@ -157,7 +157,7 @@ async function main(): Promise<void> {
     let tabEles = tabs.map(createTabs);
 
     // get options
-    const res = await browser.storage.local.get() as OptionsInterface;
+    const res = new Options(await browser.storage.local.get());
 
     if (res.showDead) {
         // get recently closed, with limit or unlimited if maxDead is 0
@@ -179,8 +179,11 @@ async function main(): Promise<void> {
             tabs_ele.appendChild(item.getElement);
     });
 
+    const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     // make things dark
-    if (res.theme === "dark") {
+    // Sets dark class if theme is set to dark, or if theme is set to follow system and system is set to dark.
+    // Uses light theme otherwise
+    if (res.theme === Themes.DARK || res.theme === Themes.SYSTEM && systemDark) {
         document.body.classList.add("dark");
         search.classList.add("dark");
         overlay.classList.add("dark");
