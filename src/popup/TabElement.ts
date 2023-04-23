@@ -6,7 +6,7 @@ export class TabElement {
     private id: string;
     private dead: boolean;
     private active: boolean;
-    private hidden: boolean = false;
+    private hidden = false;
 
     /**
      * A tab element in the page
@@ -30,13 +30,13 @@ export class TabElement {
 
         // add favicon if possible
         if (favicon !== "") {
-            let img: HTMLImageElement = document.createElement("img");
+            const img: HTMLImageElement = document.createElement("img");
             img.src = favicon;
             this.element.appendChild(img);
         }
 
         // add text to element
-        let text: HTMLDivElement = document.createElement("div");
+        const text: HTMLDivElement = document.createElement("div");
         text.innerText = name + " | " + url;
         this.element.appendChild(text);
 

@@ -1,5 +1,5 @@
 require("./index.css");
-import { browser } from "webextension-polyfill-ts";
+import browser from "webextension-polyfill";
 import { Options, SearchModes, Themes } from "../OptionsInterface";
 
 const shortcut = document.querySelector("#shortcut") as HTMLInputElement;

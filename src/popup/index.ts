@@ -1,5 +1,5 @@
 require("./index.css");
-import { browser, Tabs } from "webextension-polyfill-ts";
+import browser, { Tabs } from "webextension-polyfill";
 import { TabElement } from "./TabElement";
 import { TabList } from "./TabList";
 import { Options, Themes } from "../OptionsInterface";

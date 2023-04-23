@@ -1,4 +1,4 @@
-import { browser, Runtime } from "webextension-polyfill-ts";
+import browser, { Runtime } from "webextension-polyfill";
 import { Options } from "./OptionsInterface";
 
 /** Runs on startup, updates keyboard shortcut */
