@@ -16,6 +16,7 @@ export interface OptionsInterface {
     theme: Themes;
     showDead: boolean;
     maxDead: number;
+    autofocusSearch: boolean
 }
 
 export class Options implements OptionsInterface {
@@ -25,6 +26,7 @@ export class Options implements OptionsInterface {
     theme: Themes;
     showDead: boolean;
     maxDead: number;
+    autofocusSearch: boolean;
 
     constructor(obj: Partial<OptionsInterface>) {
         this.shortcut = obj.shortcut ?? "Ctrl+Shift+B";
@@ -33,5 +35,6 @@ export class Options implements OptionsInterface {
         this.theme = obj.theme ?? Themes.SYSTEM;
         this.showDead = obj.showDead ?? false;
         this.maxDead = obj.maxDead ?? 5;
+        this.autofocusSearch = obj.autofocusSearch ?? false;
     }
 }

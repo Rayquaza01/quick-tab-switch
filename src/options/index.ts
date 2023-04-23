@@ -8,6 +8,7 @@ const caseSensitivity = document.querySelector("#caseSensitivity") as HTMLSelect
 const showDead = document.querySelector("#showDead") as HTMLSelectElement;
 const maxDead = document.querySelector("#maxDead") as HTMLInputElement;
 const theme = document.querySelector("#theme") as HTMLSelectElement;
+const autofocusSearch = document.querySelector("#autofocusSearch") as HTMLSelectElement;
 
 /** Loads from storage onto page */
 async function load() {
@@ -16,8 +17,9 @@ async function load() {
     searchMode.value = res.searchMode;
     caseSensitivity.value = res.caseSensitivity.toString();
     theme.value = res.theme;
-    showDead.value = JSON.stringify(res.showDead);
+    showDead.value = res.showDead.toString();
     maxDead.value = res.maxDead.toString();
+    autofocusSearch.value = res.autofocusSearch.toString();
 }
 
 /** Saves from form on page to storage */
@@ -25,10 +27,11 @@ function save() {
     const opt = new Options( {
         shortcut: shortcut.value,
         searchMode: searchMode.value as SearchModes,
-        caseSensitivity: JSON.parse(caseSensitivity.value),
+        caseSensitivity: caseSensitivity.value === "true",
         theme: theme.value as Themes,
-        showDead: JSON.parse(showDead.value),
-        maxDead: Number(maxDead.value)
+        showDead: showDead.value === "true",
+        maxDead: Number(maxDead.value),
+        autofocusSearch: autofocusSearch.value === "true"
     });
 
     browser.storage.local.set(opt);
