@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "firefox": "web-ext run -s dist -f ~/.local/bin/firefox/firefox-bin",
+    "firefox": "web-ext run -s dist -f firefox",
     "build:production": "webpack --config webpack.config.js --mode=production",
     "build:development": "webpack --config webpack.config.js --mode=development --watch",
     "build:extension": "web-ext build -s dist"
