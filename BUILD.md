@@ -1,4 +1,4 @@
-# Building Quick Tab Switcher 1.1.0
+# Building Quick Tab Switcher 1.1.1
 
 System details:
  * Fedora 38
@@ -9,7 +9,7 @@ System details:
 
 # Building Complete Extension
 
-The source code is in `./src`. It is written in TypeScript and compiled and bundled using Parcel. "webextension-polyfill-ts" is included from the npm package.
+The source code is in `./src`. It is written in TypeScript and compiled and bundled using webpack. "webextension-polyfill" is included from the npm package.
 
 Run
 ```shell
@@ -17,7 +17,7 @@ npm install
 npm run build:production
 npm run build:extension
 ```
-The built extension will be in `./dist` and the zipped version in `./web-ext-artifacts/quick_tab_switcher-1.1.0.zip`
+The built extension will be in `./dist` and the zipped version in `./web-ext-artifacts/quick_tab_switcher-1.1.1.zip`
 
 # Live Testing Version
 
