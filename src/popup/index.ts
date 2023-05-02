@@ -159,10 +159,6 @@ async function main(): Promise<void> {
     // get options
     const res = new Options(await browser.storage.local.get());
 
-    if (res.autofocusSearch) {
-        search.focus();
-    }
-
     if (res.showDead) {
         // get recently closed, with limit or unlimited if maxDead is 0
         const recentlyClosed = await browser.sessions.getRecentlyClosed(
@@ -198,6 +194,11 @@ async function main(): Promise<void> {
     }
 
     tabList = new TabList(tabEles, res.searchMode, res.caseSensitivity);
+
+    if (res.autofocusSearch) {
+        search.focus();
+        tabList.getActive().setActive = false;
+    }
 }
 
 // keyboard event
