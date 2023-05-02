@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
   "name": "Quick Tab Switcher",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A quick tab switcher for Firefox",
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "id": "quick-tab-switcher@r01"
     }
@@ -13,7 +13,7 @@
   },
   "background": {
     "scripts": [
-      "background.js"
+      "background.bundle.js"
     ]
   },
   "permissions": [

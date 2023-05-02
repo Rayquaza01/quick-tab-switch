@@ -1,10 +1,10 @@
-# Building Quick Tab Switcher 1.0.1
+# Building Quick Tab Switcher 1.1.0
 
 System details:
- * Ubuntu 20.10
- * bash 5.0.17
- * node v12.19.0
- * npm 6.14.8
+ * Fedora 38
+ * bash 5.2.15
+ * node v18.15.0
+ * npm 9.4.0
  * For tool and library versions, check package.json
 
 # Building Complete Extension
@@ -14,17 +14,10 @@ The source code is in `./src`. It is written in TypeScript and compiled and bund
 Run
 ```shell
 npm install
-npm run build:complete
+npm run build:production
+npm run build:extension
 ```
-The built extension will be in `./dist` and the zipped version in `./web-ext-artifacts/quick_tab_switcher-1.0.1.zip`
-
-# Building Help Page
-
-Run
-```shell
-npm run build:help
-```
-This uses Libreoffice to convert `help.fodt` to `./src/help.pdf`.
+The built extension will be in `./dist` and the zipped version in `./web-ext-artifacts/quick_tab_switcher-1.1.0.zip`
 
 # Live Testing Version
 
