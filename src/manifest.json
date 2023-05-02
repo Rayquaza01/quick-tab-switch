@@ -1,41 +1,49 @@
 {
-    "manifest_version": 2,
-    "name": "Quick Tab Switcher",
-    "version": "1.0.1",
-    "description": "A quick tab switcher for Firefox",
-    "applications": {
-        "gecko": {
-            "id": "quick-tab-switcher@r01"
-        }
-    },
-    "icons": {
-        "96": "icons/icon-96.png"
-    },
-    "background": {
-        "scripts": ["background.js"]
-    },
-    "permissions": ["storage", "tabs", "sessions"],
-    "browser_action": {
-        "browser_style": true,
-        "default_popup": "popup.html",
-        "default_icon": "icons/icon.png",
-        "theme_icons": [
-            {
-                "light": "icons/icon-light.png",
-                "dark": "icons/icon.png",
-                "size": 96
-            }
-        ]
-    },
-    "options_ui": {
-        "page": "options.html",
-        "browser_style": true
-    },
-    "commands": {
-        "_execute_browser_action": {
-            "suggested_key": {
-                "default": "Ctrl+Shift+B"
-            }
-        }
+  "manifest_version": 2,
+  "name": "Quick Tab Switcher",
+  "version": "1.1.0",
+  "description": "A quick tab switcher for Firefox",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "quick-tab-switcher@r01"
     }
+  },
+  "icons": {
+    "96": "icons/icon-96.png"
+  },
+  "background": {
+    "scripts": [
+      "background.bundle.js"
+    ]
+  },
+  "permissions": [
+    "storage",
+    "tabs",
+    "sessions"
+  ],
+  "browser_action": {
+    "browser_style": true,
+    "default_popup": "popup.html",
+    "default_icon": {
+      "96": "icons/icon.png"
+    },
+    "theme_icons": [
+      {
+        "light": "icons/icon-light.png",
+        "dark": "icons/icon.png",
+        "size": 96
+      }
+    ]
+  },
+  "options_ui": {
+    "page": "options.html",
+    "browser_style": true
+  },
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+B"
+      }
+    }
+  }
 }

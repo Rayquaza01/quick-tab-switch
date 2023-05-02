@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <title>Options</title>
-        <link rel="stylesheet" type="text/css" href="options/index.css">
     </head>
     <body>
         <a href="help.pdf" target="_blank">Help</a>
@@ -21,8 +20,14 @@
 
             Case Sensitivity:
             <select id="caseSensitivity">
-              <option value=false>Case Insensitive</option>
-              <option value=true>Case Sensitive</option>
+              <option value="false">Case Insensitive</option>
+              <option value="true">Case Sensitive</option>
+            </select>
+
+            Autofocus Searchbar
+            <select id="autofocusSearch">
+              <option value="false">Don't Autofocus Search</option>
+              <option value="true">Autofocus Search</option>
             </select>
           </div>
         </div>
@@ -43,10 +48,10 @@
         <div>
             Colorscheme:
             <select id="theme">
+                <option value="system">Follow System</option>
                 <option value="light">Light</option>
                 <option value="dark">Dark</option>
             </select>
         </div>
-        <script src="options/index.ts"></script>
     </body>
 </html>

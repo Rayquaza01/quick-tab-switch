@@ -1,17 +1,40 @@
-export interface OptionsInterface {
-    shortcut: string;
-    searchMode: "string" | "regex";
-    caseSensitivity: boolean;
-    theme: "light" | "dark";
-    showDead: boolean;
-    maxDead: number;
+export enum SearchModes {
+    STRING = "string",
+    REGEX = "regex"
 }
 
-export const DefaultOptions: OptionsInterface = {
-    shortcut: "Ctrl+Shift+B",
-    searchMode: "string",
-    caseSensitivity: false,
-    theme: "light",
-    showDead: false,
-    maxDead: 5
-};
+export enum Themes {
+    SYSTEM = "system",
+    LIGHT = "light",
+    DARK = "dark"
+}
+
+export interface OptionsInterface {
+    shortcut: string;
+    searchMode: SearchModes;
+    caseSensitivity: boolean;
+    theme: Themes;
+    showDead: boolean;
+    maxDead: number;
+    autofocusSearch: boolean
+}
+
+export class Options implements OptionsInterface {
+    shortcut: string;
+    searchMode: SearchModes;
+    caseSensitivity: boolean;
+    theme: Themes;
+    showDead: boolean;
+    maxDead: number;
+    autofocusSearch: boolean;
+
+    constructor(obj: Partial<OptionsInterface>) {
+        this.shortcut = obj.shortcut ?? "Ctrl+Shift+B";
+        this.searchMode = obj.searchMode ?? SearchModes.STRING;
+        this.caseSensitivity = obj.caseSensitivity ?? false;
+        this.theme = obj.theme ?? Themes.SYSTEM;
+        this.showDead = obj.showDead ?? false;
+        this.maxDead = obj.maxDead ?? 5;
+        this.autofocusSearch = obj.autofocusSearch ?? false;
+    }
+}
