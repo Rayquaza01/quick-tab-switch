@@ -2,7 +2,7 @@ require("./index.css");
 import browser, { Tabs } from "webextension-polyfill";
 import { TabElement } from "./TabElement";
 import { TabList } from "./TabList";
-import { Options, Themes } from "../OptionsInterface";
+import { Options, SortModes, Themes } from "../OptionsInterface";
 
 /** List of tabs on the page */
 let tabList: TabList;
@@ -146,6 +146,9 @@ function filter(): void {
 }
 
 async function main(): Promise<void> {
+    // get options
+    const res = new Options(await browser.storage.local.get());
+
     // hide overlay if in focus
     if (document.hasFocus()) {
         overlay.style.display = "none";
@@ -153,11 +156,16 @@ async function main(): Promise<void> {
 
     // get tabs
     const tabs = await browser.tabs.query({ currentWindow: true });
+    if (res.sortMode === SortModes.LAST_ACCESSED) {
+        tabs.sort((a, b) => {
+            // sort based on last accessed key for tabs
+            // typecast used since ts says lastAccessed could be undefined,
+            // but according to the docs, this isn't true!
+            return (b.lastAccessed as number) - (a.lastAccessed as number);
+        });
+    }
     // create html elements from tab query
     let tabEles = tabs.map(createTabs);
-
-    // get options
-    const res = new Options(await browser.storage.local.get());
 
     if (res.showDead) {
         // get recently closed, with limit or unlimited if maxDead is 0
