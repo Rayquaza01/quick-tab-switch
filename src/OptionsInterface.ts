@@ -9,6 +9,11 @@ export enum Themes {
     DARK = "dark"
 }
 
+export enum SortModes {
+    DEFAULT = "default",
+    LAST_ACCESSED = "lastAccessed"
+}
+
 export interface OptionsInterface {
     shortcut: string;
     searchMode: SearchModes;
@@ -16,7 +21,8 @@ export interface OptionsInterface {
     theme: Themes;
     showDead: boolean;
     maxDead: number;
-    autofocusSearch: boolean
+    autofocusSearch: boolean;
+    sortMode: SortModes;
 }
 
 export class Options implements OptionsInterface {
@@ -27,6 +33,7 @@ export class Options implements OptionsInterface {
     showDead: boolean;
     maxDead: number;
     autofocusSearch: boolean;
+    sortMode: SortModes;
 
     constructor(obj: Partial<OptionsInterface>) {
         this.shortcut = obj.shortcut ?? "Ctrl+Shift+B";
@@ -36,5 +43,6 @@ export class Options implements OptionsInterface {
         this.showDead = obj.showDead ?? false;
         this.maxDead = obj.maxDead ?? 5;
         this.autofocusSearch = obj.autofocusSearch ?? false;
+        this.sortMode = obj.sortMode ?? SortModes.DEFAULT;
     }
 }
