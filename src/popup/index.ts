@@ -104,7 +104,7 @@ function switchTab(e: KeyboardEvent) {
             }
             search.focus();
             active.setActive = false;
-        } else if (e.key === "w") [
+        } else if (e.key === "w") {
             // close tab
             browser.tabs.remove(Number(active.getID));
         } else if (e.key === "?") {
