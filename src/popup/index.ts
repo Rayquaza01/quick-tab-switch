@@ -107,6 +107,12 @@ function switchTab(e: KeyboardEvent) {
         } else if (e.key === "w") {
             // close tab
             browser.tabs.remove(Number(active.getID));
+
+            // close window if current tab is selected
+            if (active.isSelected) window.close();
+
+            // remove active tab from tab list
+            tabList.removeActive();
         } else if (e.key === "?") {
             // open help page
             browser.tabs.create({ url: "help.pdf", active: true });
