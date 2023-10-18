@@ -113,6 +113,12 @@ function switchTab(e: KeyboardEvent) {
 
             // remove active tab from tab list
             tabList.removeActive();
+
+            // if every item in the tab list is hidden, mark search as invalid
+            if (tabList.getList().every(item => item.isHidden)) {
+                search.classList.add("invalid");
+                search.focus();
+            }
         } else if (e.key === "?") {
             // open help page
             browser.tabs.create({ url: "help.pdf", active: true });
