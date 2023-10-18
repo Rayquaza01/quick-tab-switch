@@ -89,4 +89,20 @@ export class TabList {
         const list = this.getList(true);
         return list[mod(pos, list.length)];
     }
+
+    removeActive(): void {
+        const active = this.getActive();
+        const activeIndex = this.getActiveIndex();
+
+        // remove active element from DOM
+        active.getElement.parentElement?.removeChild(active.getElement);
+
+        // set next element in list to be active
+        this.at(activeIndex + 1).setActive = true;
+
+        // remove from tab list
+        // get real index (can't use getActiveIndex, since that is filtered by search)
+        const absActiveIndex = this.list.indexOf(active);
+        this.list.splice(absActiveIndex, 1);
+    }
 }
