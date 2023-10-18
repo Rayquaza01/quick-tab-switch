@@ -7,6 +7,7 @@ export class TabElement {
     private dead: boolean;
     private active: boolean;
     private hidden = false;
+    private selected: boolean
 
     /**
      * A tab element in the page
@@ -23,6 +24,10 @@ export class TabElement {
         this.url = url;
         this.dead = dead;
         this.active = active;
+
+        // selected represents if the tab is currently selected in the tab bar
+        // this mirrors active at creation, but active changes with user input
+        this.selected = active;
 
         // create tab element
         this.element = document.createElement("div");
@@ -77,6 +82,11 @@ export class TabElement {
     /** Whether the tab is active */
     get isActive() {
         return this.active;
+    }
+
+    /** Whether the tab is selected in the tab bar */
+    get isSelected() {
+        return this.selected;
     }
 
     /** Whether the tab is dead (recently closed) */
