@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:css3t="http://www.w3.org/TR/css3-text/" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:rpt="http://openoffice.org/2005/report" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" office:version="1.3" office:mimetype="application/vnd.oasis.opendocument.text">
- <office:meta><meta:initial-creator>Joe Jarvis</meta:initial-creator><meta:creation-date>2020-10-26T09:59:21.987927603</meta:creation-date><dc:date>2023-07-25T13:54:44.518927997</dc:date><meta:editing-duration>PT39M51S</meta:editing-duration><meta:editing-cycles>10</meta:editing-cycles><meta:generator>LibreOffice/7.5.3.2$Linux_X86_64 LibreOffice_project/50$Build-2</meta:generator><meta:document-statistic meta:table-count="0" meta:image-count="6" meta:object-count="0" meta:page-count="5" meta:paragraph-count="43" meta:word-count="553" meta:character-count="2889" meta:non-whitespace-character-count="2381"/></office:meta>
+ <office:meta><meta:initial-creator>Joe Jarvis</meta:initial-creator><meta:creation-date>2020-10-26T09:59:21.987927603</meta:creation-date><dc:date>2023-11-07T10:57:46.116559197</dc:date><meta:editing-duration>PT44M46S</meta:editing-duration><meta:editing-cycles>13</meta:editing-cycles><meta:generator>LibreOffice/7.5.7.1$Linux_X86_64 LibreOffice_project/50$Build-1</meta:generator><meta:document-statistic meta:table-count="0" meta:image-count="6" meta:object-count="0" meta:page-count="6" meta:paragraph-count="46" meta:word-count="603" meta:character-count="3147" meta:non-whitespace-character-count="2594"/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
-   <config:config-item config:name="ViewAreaTop" config:type="long">2732</config:config-item>
+   <config:config-item config:name="ViewAreaTop" config:type="long">2</config:config-item>
    <config:config-item config:name="ViewAreaLeft" config:type="long">0</config:config-item>
    <config:config-item config:name="ViewAreaWidth" config:type="long">38774</config:config-item>
    <config:config-item config:name="ViewAreaHeight" config:type="long">17119</config:config-item>
@@ -13,12 +13,12 @@
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
-     <config:config-item config:name="ViewLeft" config:type="long">21886</config:config-item>
+     <config:config-item config:name="ViewLeft" config:type="long">17630</config:config-item>
      <config:config-item config:name="ViewTop" config:type="long">6064</config:config-item>
      <config:config-item config:name="VisibleLeft" config:type="long">0</config:config-item>
-     <config:config-item config:name="VisibleTop" config:type="long">2732</config:config-item>
+     <config:config-item config:name="VisibleTop" config:type="long">2</config:config-item>
      <config:config-item config:name="VisibleRight" config:type="long">38772</config:config-item>
-     <config:config-item config:name="VisibleBottom" config:type="long">19849</config:config-item>
+     <config:config-item config:name="VisibleBottom" config:type="long">17119</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
      <config:config-item config:name="ViewLayoutColumns" config:type="short">1</config:config-item>
      <config:config-item config:name="ViewLayoutBookMode" config:type="boolean">false</config:config-item>
@@ -39,10 +39,9 @@
    <config:config-item config:name="PrintControls" config:type="boolean">true</config:config-item>
    <config:config-item config:name="PrintProspect" config:type="boolean">false</config:config-item>
    <config:config-item config:name="PrintBlackFonts" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintAnnotationMode" config:type="short">0</config:config-item>
    <config:config-item config:name="PrintEmptyPages" config:type="boolean">true</config:config-item>
    <config:config-item config:name="PrintSingleJobs" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrintAnnotationMode" config:type="short">0</config:config-item>
-   <config:config-item config:name="WordLikeWrapForAsCharFlys" config:type="boolean">false</config:config-item>
    <config:config-item config:name="AutoFirstLineIndentDisregardLineSpace" config:type="boolean">false</config:config-item>
    <config:config-item config:name="HeaderSpacingBelowLastPara" config:type="boolean">false</config:config-item>
    <config:config-item config:name="ProtectBookmarks" config:type="boolean">false</config:config-item>
@@ -74,7 +73,7 @@
    <config:config-item config:name="UpdateFromTemplate" config:type="boolean">true</config:config-item>
    <config:config-item config:name="AddFrameOffsets" config:type="boolean">false</config:config-item>
    <config:config-item config:name="LoadReadonly" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="Rsid" config:type="int">750155</config:config-item>
+   <config:config-item config:name="Rsid" config:type="int">794643</config:config-item>
    <config:config-item config:name="FootnoteInColumnToPageEnd" config:type="boolean">true</config:config-item>
    <config:config-item config:name="ProtectFields" config:type="boolean">false</config:config-item>
    <config:config-item config:name="SaveGlobalDocumentLinks" config:type="boolean">false</config:config-item>
@@ -162,7 +161,7 @@
  <office:styles>
   <style:default-style style:family="graphic">
    <style:graphic-properties svg:stroke-color="#3465a4" draw:fill-color="#729fcf" fo:wrap-option="no-wrap" draw:shadow-offset-x="0.1181in" draw:shadow-offset-y="0.1181in" draw:start-line-spacing-horizontal="0.1114in" draw:start-line-spacing-vertical="0.1114in" draw:end-line-spacing-horizontal="0.1114in" draw:end-line-spacing-vertical="0.1114in" style:writing-mode="lr-tb" style:flow-with-text="false"/>
-   <style:paragraph-properties style:text-autospace="ideograph-alpha" style:line-break="strict" style:font-independent-line-spacing="false">
+   <style:paragraph-properties style:text-autospace="ideograph-alpha" style:line-break="strict" style:writing-mode="lr-tb" style:font-independent-line-spacing="false">
     <style:tab-stops/>
    </style:paragraph-properties>
    <style:text-properties style:use-window-font-color="true" loext:opacity="0%" loext:color-lum-mod="100%" loext:color-lum-off="0%" style:font-name="Liberation Serif" fo:font-size="12pt" fo:language="en" fo:country="US" style:letter-kerning="true" style:font-name-asian="Noto Serif CJK SC" style:font-size-asian="10.5pt" style:language-asian="zh" style:country-asian="CN" style:font-name-complex="Lohit Devanagari1" style:font-size-complex="12pt" style:language-complex="hi" style:country-complex="IN"/>
@@ -257,7 +256,7 @@
    <style:text-properties fo:color="#800000" loext:opacity="100%" fo:language="zxx" fo:country="none" style:text-underline-style="solid" style:text-underline-width="auto" style:text-underline-color="font-color" style:language-asian="zxx" style:country-asian="none" style:language-complex="zxx" style:country-complex="none"/>
   </style:style>
   <style:style style:name="Graphics" style:family="graphic">
-   <style:graphic-properties text:anchor-type="paragraph" svg:x="0in" svg:y="0in" style:wrap="dynamic" style:number-wrapped-paragraphs="no-limit" style:wrap-contour="false" style:vertical-pos="top" style:vertical-rel="paragraph" style:horizontal-pos="center" style:horizontal-rel="paragraph"/>
+   <style:graphic-properties text:anchor-type="paragraph" svg:x="0in" svg:y="0in" style:wrap="dynamic" style:number-wrapped-paragraphs="no-limit" style:wrap-contour="false" style:vertical-pos="top" style:vertical-rel="paragraph" style:horizontal-pos="center" style:horizontal-rel="paragraph" draw:fill="none"/>
   </style:style>
   <text:outline-style style:name="Outline">
    <text:outline-level-style text:level="1" loext:num-list-format="%1%" style:num-format="">
@@ -396,35 +395,31 @@
    <style:paragraph-properties fo:margin-top="0in" fo:margin-bottom="0.1in" style:contextual-spacing="true"/>
    <style:text-properties officeooo:rsid="000acaf9" officeooo:paragraph-rsid="00084f98"/>
   </style:style>
-  <style:style style:name="P22" style:family="paragraph" style:parent-style-name="Heading_20_1">
-   <style:paragraph-properties fo:break-before="page"/>
-   <style:text-properties officeooo:rsid="00084f98" officeooo:paragraph-rsid="00084f98"/>
+  <style:style style:name="P22" style:family="paragraph" style:parent-style-name="Text_20_body">
+   <style:text-properties officeooo:rsid="000b724b" officeooo:paragraph-rsid="00084f98"/>
   </style:style>
   <style:style style:name="P23" style:family="paragraph" style:parent-style-name="Heading_20_1">
    <style:paragraph-properties fo:break-before="page"/>
-   <style:text-properties officeooo:rsid="00084125" officeooo:paragraph-rsid="00084125"/>
-  </style:style>
-  <style:style style:name="P24" style:family="paragraph" style:parent-style-name="Heading_20_2">
-   <style:text-properties officeooo:rsid="00084f98"/>
-  </style:style>
-  <style:style style:name="P25" style:family="paragraph" style:parent-style-name="Heading_20_2">
    <style:text-properties officeooo:rsid="00084f98" officeooo:paragraph-rsid="00084f98"/>
   </style:style>
-  <style:style style:name="P26" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L1">
-   <style:text-properties officeooo:rsid="00073e60" officeooo:paragraph-rsid="00073e60"/>
-  </style:style>
-  <style:style style:name="P27" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L1">
+  <style:style style:name="P24" style:family="paragraph" style:parent-style-name="Heading_20_1">
+   <style:paragraph-properties fo:break-before="page"/>
    <style:text-properties officeooo:rsid="00084125" officeooo:paragraph-rsid="00084125"/>
   </style:style>
-  <style:style style:name="P28" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-top="0in" fo:margin-bottom="0.1in" style:contextual-spacing="true"/>
-   <style:text-properties officeooo:rsid="000acaf9" officeooo:paragraph-rsid="000acaf9"/>
+  <style:style style:name="P25" style:family="paragraph" style:parent-style-name="Heading_20_2">
+   <style:text-properties officeooo:rsid="00084f98"/>
   </style:style>
-  <style:style style:name="P29" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:text-properties officeooo:rsid="000b724b" officeooo:paragraph-rsid="00084f98"/>
+  <style:style style:name="P26" style:family="paragraph" style:parent-style-name="Heading_20_2">
+   <style:text-properties officeooo:rsid="00084f98" officeooo:paragraph-rsid="00084f98"/>
   </style:style>
-  <style:style style:name="P30" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:text-properties officeooo:rsid="000a29bf" officeooo:paragraph-rsid="000a29bf"/>
+  <style:style style:name="P27" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L1">
+   <style:text-properties officeooo:rsid="00073e60" officeooo:paragraph-rsid="00073e60"/>
+  </style:style>
+  <style:style style:name="P28" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L1">
+   <style:text-properties officeooo:rsid="00084125" officeooo:paragraph-rsid="00084125"/>
+  </style:style>
+  <style:style style:name="P29" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L1">
+   <style:text-properties officeooo:rsid="000c2013" officeooo:paragraph-rsid="000c2013"/>
   </style:style>
   <style:style style:name="T1" style:family="text">
    <style:text-properties officeooo:rsid="00073e60"/>
@@ -454,22 +449,28 @@
    <style:text-properties style:font-name="Liberation Mono" fo:font-size="10pt" officeooo:rsid="00084f98" fo:background-color="#cccccc" loext:char-shading-value="0" style:font-size-asian="10pt" style:font-size-complex="10pt"/>
   </style:style>
   <style:style style:name="T10" style:family="text">
-   <style:text-properties fo:font-size="10pt" officeooo:rsid="00084f98" style:font-size-asian="10pt" style:font-size-complex="10pt"/>
+   <style:text-properties style:font-name="Liberation Mono" fo:font-size="10pt" fo:background-color="#cccccc" loext:char-shading-value="0" style:font-size-asian="10pt" style:font-size-complex="10pt"/>
   </style:style>
   <style:style style:name="T11" style:family="text">
-   <style:text-properties officeooo:rsid="00084f98"/>
+   <style:text-properties fo:font-size="10pt" officeooo:rsid="00084f98" style:font-size-asian="10pt" style:font-size-complex="10pt"/>
   </style:style>
   <style:style style:name="T12" style:family="text">
-   <style:text-properties fo:color="#c9211e" loext:opacity="100%" style:text-line-through-style="solid" style:text-line-through-type="single"/>
+   <style:text-properties officeooo:rsid="00084f98"/>
   </style:style>
   <style:style style:name="T13" style:family="text">
-   <style:text-properties officeooo:rsid="000a29bf"/>
+   <style:text-properties fo:color="#c9211e" loext:opacity="100%" style:text-line-through-style="solid" style:text-line-through-type="single"/>
   </style:style>
   <style:style style:name="T14" style:family="text">
-   <style:text-properties officeooo:rsid="000acaf9"/>
+   <style:text-properties officeooo:rsid="000a29bf"/>
   </style:style>
   <style:style style:name="T15" style:family="text">
+   <style:text-properties officeooo:rsid="000acaf9"/>
+  </style:style>
+  <style:style style:name="T16" style:family="text">
    <style:text-properties officeooo:rsid="000b724b"/>
+  </style:style>
+  <style:style style:name="T17" style:family="text">
+   <style:text-properties officeooo:rsid="000c2013"/>
   </style:style>
   <style:style style:name="fr1" style:family="graphic" style:parent-style-name="Graphics">
    <style:graphic-properties style:run-through="foreground" style:wrap="none" style:vertical-pos="top" style:vertical-rel="paragraph" style:horizontal-pos="center" style:horizontal-rel="paragraph" style:mirror="none" fo:clip="rect(0in, 0in, 0in, 0in)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
@@ -553,7 +554,7 @@
  <office:master-styles>
   <style:master-page style:name="Standard" style:page-layout-name="pm1" draw:style-name="dp1">
    <style:header>
-    <text:p text:style-name="P1"><text:page-number text:select-page="current">5</text:page-number></text:p>
+    <text:p text:style-name="P1"><text:page-number text:select-page="current">6</text:page-number></text:p>
    </style:header>
   </style:master-page>
  </office:master-styles>
@@ -568,7 +569,7 @@
    </text:sequence-decls>
    <text:p text:style-name="P14">Quick Tab Switch<text:span text:style-name="T2">er</text:span> Help</text:p>
    <text:p text:style-name="P8">Joe Jarvis</text:p>
-   <text:p text:style-name="P12">v1.<text:span text:style-name="T15">2</text:span>.<text:span text:style-name="T13">0</text:span> – Updated <text:span text:style-name="T14">2023-0</text:span><text:span text:style-name="T15">7-25</text:span></text:p>
+   <text:p text:style-name="P12">v1.<text:span text:style-name="T17">2</text:span>.<text:span text:style-name="T14">0</text:span> – Updated <text:span text:style-name="T15">2023-0</text:span><text:span text:style-name="T16">7-25</text:span></text:p>
    <text:p text:style-name="P15"><text:a xlink:type="simple" xlink:href="https://github.com/Rayquaza01/quick-tab-switch" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="T2">Github</text:span></text:a><text:span text:style-name="T2"> – </text:span><text:a xlink:type="simple" xlink:href="https://addons.mozilla.org/en-US/firefox/addon/quick-tab-switcher/" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="T2">AMO</text:span></text:a></text:p>
    <text:table-of-content text:style-name="Sect1" text:protected="true" text:name="Table of Contents1">
     <text:table-of-content-source text:outline-level="10">
@@ -1011,27 +1012,38 @@
    <text:p text:style-name="P13">You can navigate with keyboard shortcuts (shown at the bottom of the popup).</text:p>
    <text:list text:style-name="L1">
     <text:list-item>
-     <text:p text:style-name="P26">Pressing <text:span text:style-name="T6">J</text:span> or <text:span text:style-name="T6">↓</text:span> <text:span text:style-name="T2">will select the next (below) tab, and pressing </text:span><text:span text:style-name="T7">K</text:span><text:span text:style-name="T2"> or </text:span><text:span text:style-name="T7">↑</text:span><text:span text:style-name="T2"> will select the previous (above) tab.</text:span></text:p>
+     <text:p text:style-name="P27">Pressing <text:span text:style-name="T6">J</text:span> or <text:span text:style-name="T6">↓</text:span> <text:span text:style-name="T2">will select the next (below) tab, and pressing </text:span><text:span text:style-name="T7">K</text:span><text:span text:style-name="T2"> or </text:span><text:span text:style-name="T7">↑</text:span><text:span text:style-name="T2"> will select the previous (above) tab.</text:span></text:p>
      <text:list>
       <text:list-item>
-       <text:p text:style-name="P27">These will wrap around. (ex: Pressing <text:span text:style-name="T8">J</text:span><text:span text:style-name="T1"> or </text:span><text:span text:style-name="T8">↓</text:span><text:span text:style-name="T1"> </text:span>on the last tab will select the first tab and vice versa).</text:p>
+       <text:p text:style-name="P28">These will wrap around. (ex: Pressing <text:span text:style-name="T8">J</text:span><text:span text:style-name="T1"> or </text:span><text:span text:style-name="T8">↓</text:span><text:span text:style-name="T1"> </text:span>on the last tab will select the first tab and vice versa).</text:p>
       </text:list-item>
      </text:list>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P27">Pressing <text:span text:style-name="T6">g</text:span> will select the top tab, and <text:span text:style-name="T6">G</text:span> will select the bottom tab.</text:p>
+     <text:p text:style-name="P28">Pressing <text:span text:style-name="T6">g</text:span> will select the top tab, and <text:span text:style-name="T6">G</text:span> will select the bottom tab.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P27">Pressing <text:span text:style-name="T6">Enter</text:span> will switch to the selected tab and close the popup.</text:p>
+     <text:p text:style-name="P28">Pressing <text:span text:style-name="T6">Enter</text:span> will switch to the selected tab and close the popup.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P27">Pressing <text:span text:style-name="T6">s</text:span> will open the <text:a xlink:type="simple" xlink:href="#2.Settings|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">settings</text:a> for the extension.</text:p>
+     <text:p text:style-name="P28">Pressing <text:span text:style-name="T6">s</text:span> will open the <text:a xlink:type="simple" xlink:href="#2.Settings|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">settings</text:a> for the extension.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P27">Pressing <text:span text:style-name="T6">?</text:span> will open this page.</text:p>
+     <text:p text:style-name="P28">Pressing <text:span text:style-name="T6">?</text:span> will open this page.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P27">Pressing <text:span text:style-name="T6">/</text:span> will focus the <text:a xlink:type="simple" xlink:href="#2.2.Search|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">search box</text:a>.</text:p>
+     <text:p text:style-name="P28">Pressing <text:span text:style-name="T6">/</text:span> will focus the <text:a xlink:type="simple" xlink:href="#2.2.Search|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">search box</text:a>.</text:p>
+    </text:list-item>
+    <text:list-item>
+     <text:p text:style-name="P29">Pressing <text:span text:style-name="T10">w</text:span> will close the current tab.<text:tab/></text:p>
+     <text:list>
+      <text:list-item>
+       <text:p text:style-name="P29">If you close the tab that is currently focused, the popup will also close.</text:p>
+      </text:list-item>
+      <text:list-item>
+       <text:p text:style-name="P29">Tabs closed through this shortcut are removed from the list, and do not appear as recently closed tabs until the next time you open the popup.</text:p>
+      </text:list-item>
+     </text:list>
     </text:list-item>
    </text:list>
    <text:p text:style-name="P11">When the popup is out of focus, you can’t use keyboard shortcuts. An error will show alerting you that the popup is out of focus:</text:p>
@@ -1302,7 +1314,7 @@
        RK5CYII=
       </office:binary-data>
      </draw:image>
-    </draw:frame>When this happens, close and reopen the popup, or click inside the popup to focus it.</text:p>
+    </draw:frame><text:soft-page-break/>When this happens, close and reopen the popup, or click inside the popup to focus it.</text:p>
    <text:h text:style-name="P10" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc107_1617880269"/>Settings<text:bookmark-end text:name="__RefHeading___Toc107_1617880269"/></text:h>
    <text:p text:style-name="P11">The settings page looks like this:</text:p>
    <text:h text:style-name="P9" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc140_1617880269"/><draw:frame draw:style-name="fr2" draw:name="Image3" text:anchor-type="char" svg:width="3.6402in" svg:height="2.7244in" draw:z-index="5"><draw:image draw:mime-type="image/png">
@@ -2021,7 +2033,7 @@
    <text:p text:style-name="P17">The search options affect how the search box in the popup works. The search is run on the page title and URL for each tab. <text:s/></text:p>
    <text:p text:style-name="P17">Press <text:span text:style-name="T6">Enter</text:span> after you enter your search term to put the cursor back on the tab list.</text:p>
    <text:p text:style-name="P17">If search mode is <text:span text:style-name="T9">Normal</text:span> (default), it will show only the items that contain the search term. If search mode is regex, you can use <text:a xlink:type="simple" xlink:href="https://en.wikipedia.org/wiki/Regular_expression" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">regular expressions</text:a> in your search terms.</text:p>
-   <text:p text:style-name="P18">Here is an example of the search (<text:span text:style-name="T11">RegEx</text:span> mode) showing only tabs with <text:span text:style-name="T6">http</text:span> or <text:span text:style-name="T6">https</text:span> in the title or URL:</text:p>
+   <text:p text:style-name="P18">Here is an example of the search (<text:span text:style-name="T12">RegEx</text:span> mode) showing only tabs with <text:span text:style-name="T6">http</text:span> or <text:span text:style-name="T6">https</text:span> in the title or URL:</text:p>
    <text:p text:style-name="P21"/>
    <text:p text:style-name="P20"><draw:frame draw:style-name="fr1" draw:name="Image4" text:anchor-type="paragraph" svg:width="4.4016in" svg:height="1.772in" draw:z-index="4"><draw:image draw:mime-type="image/png">
       <office:binary-data>iVBORw0KGgoAAAANSUhEUgAAAkAAAADoCAIAAACIKMzLAAAACXBIWXMAAA7EAAAOxAGVKw4b
@@ -2347,7 +2359,7 @@
      </draw:image>
     </draw:frame><text:soft-page-break/>If the search auto focus option is set to enabled, the search bar will automatically be focused when opening the popup, without the need to press <text:span text:style-name="T7">/</text:span> first.</text:p>
    <text:h text:style-name="P6" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc126_1617880269"/>Recently Closed Tabs<text:bookmark-end text:name="__RefHeading___Toc126_1617880269"/></text:h>
-   <text:p text:style-name="P17">If you enable recently closed tabs, you can see tabs that you recently closed. They will be shown with <text:span text:style-name="T12">red text and strikethrough</text:span> to show that they were closed. Selecting one of these will open the tab again.</text:p>
+   <text:p text:style-name="P17">If you enable recently closed tabs, you can see tabs that you recently closed. They will be shown with <text:span text:style-name="T13">red text and strikethrough</text:span> to show that they were closed. Selecting one of these will open the tab again.</text:p>
    <text:p text:style-name="P17"><draw:frame draw:style-name="fr2" draw:name="Image5" text:anchor-type="char" svg:width="4.1181in" svg:height="2.448in" draw:z-index="2"><draw:image draw:mime-type="image/png">
       <office:binary-data>iVBORw0KGgoAAAANSUhEUgAAAjwAAAFUCAIAAACvInFnAAAACXBIWXMAAA7EAAAOxAGVKw4b
        AAAgAElEQVR4nOzdd3wT5RsA8Oe9u1yStrSFtkBZBcveswXKUJkOliKCgiwZDkBRWSpLULaK
@@ -2890,7 +2902,7 @@
    <text:h text:style-name="P6" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc128_1617880269"/>UI<text:bookmark-end text:name="__RefHeading___Toc128_1617880269"/></text:h>
    <text:p text:style-name="P17">You can select the theme of the extension. The light theme was shown above, here is an example of the dark theme:</text:p>
    <text:p text:style-name="P19">You can set the theme to follow your system theme preferences. If the color scheme is set to follow system, the dark theme will be used if your operating system is set to use a dark theme. Otherwise, the light theme will be used.</text:p>
-   <text:p text:style-name="P29"><draw:frame draw:style-name="fr1" draw:name="Image7" text:anchor-type="paragraph" svg:width="4.5902in" svg:height="1.9445in" draw:z-index="3"><draw:image draw:mime-type="image/png">
+   <text:p text:style-name="P22"><draw:frame draw:style-name="fr1" draw:name="Image7" text:anchor-type="paragraph" svg:width="4.5902in" svg:height="1.9445in" draw:z-index="3"><draw:image draw:mime-type="image/png">
       <office:binary-data>iVBORw0KGgoAAAANSUhEUgAAAjkAAADxCAIAAACmrTHKAAAACXBIWXMAAA7EAAAOxAGVKw4b
        AAAgAElEQVR4nO3de1wTZ7o48CcXZgAZBBOlBnFDdQmKQVuDraAW6Iq0Uul661rtHhZ76tLT
        1m69Ha3dY9dLj5duYd0jp/1Vj91irbW69daKWqAqWCG0GqQSKiVbJBRNBBkEZkjI749ACCE3
