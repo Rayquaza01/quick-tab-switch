@@ -104,6 +104,21 @@ function switchTab(e: KeyboardEvent) {
             }
             search.focus();
             active.setActive = false;
+        } else if (e.key === "w") {
+            // close tab
+            browser.tabs.remove(Number(active.getID));
+
+            // close window if current tab is selected
+            if (active.isSelected) window.close();
+
+            // remove active tab from tab list
+            tabList.removeActive();
+
+            // if every item in the tab list is hidden, mark search as invalid
+            if (tabList.getList().every(item => item.isHidden)) {
+                search.classList.add("invalid");
+                search.focus();
+            }
         } else if (e.key === "?") {
             // open help page
             browser.tabs.create({ url: "help.pdf", active: true });
