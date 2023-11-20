@@ -170,7 +170,7 @@ async function main(): Promise<void> {
     }
 
     // get tabs
-    const tabs = await browser.tabs.query({ currentWindow: true });
+    let tabs = await browser.tabs.query({ currentWindow: true });
     if (res.sortMode === SortModes.LAST_ACCESSED) {
         tabs.sort((a, b) => {
             // sort based on last accessed key for tabs
@@ -179,6 +179,12 @@ async function main(): Promise<void> {
             return (b.lastAccessed as number) - (a.lastAccessed as number);
         });
     }
+
+    // remove firefox view tabs
+    if (res.filterFirefoxView) {
+        tabs = tabs.filter(item => item.url !== "about:firefoxview-next");
+    }
+
     // create html elements from tab query
     let tabEles = tabs.map(createTabs);
 
