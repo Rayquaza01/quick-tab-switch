@@ -1,10 +1,10 @@
-# Building Quick Tab Switcher 1.1.1
+# Building Quick Tab Switcher 1.3.0
 
 System details:
- * Fedora 38
- * bash 5.2.15
- * node v18.15.0
- * npm 9.4.0
+ * Fedora 39
+ * bash 5.2.21
+ * node v20.8.1
+ * npm 9.7.2
  * For tool and library versions, check package.json
 
 # Building Complete Extension
@@ -17,13 +17,13 @@ npm install
 npm run build:production
 npm run build:extension
 ```
-The built extension will be in `./dist` and the zipped version in `./web-ext-artifacts/quick_tab_switcher-1.1.1.zip`
+The built extension will be in `./dist` and the zipped version in `./web-ext-artifacts/quick_tab_switcher-1.3.0.zip`
 
 # Live Testing Version
 
 Run
 ```shell
-npm run watch:extension
+npm run build:development
 npm run firefox
 ```
 This will re-build and reload the extension when the files change
