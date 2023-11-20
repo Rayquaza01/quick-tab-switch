@@ -23,6 +23,7 @@ export interface OptionsInterface {
     maxDead: number;
     autofocusSearch: boolean;
     sortMode: SortModes;
+    filterFirefoxView: boolean;
 }
 
 export class Options implements OptionsInterface {
@@ -34,6 +35,7 @@ export class Options implements OptionsInterface {
     maxDead: number;
     autofocusSearch: boolean;
     sortMode: SortModes;
+    filterFirefoxView: boolean;
 
     constructor(obj: Partial<OptionsInterface>) {
         this.shortcut = obj.shortcut ?? "Ctrl+Shift+B";
@@ -44,5 +46,6 @@ export class Options implements OptionsInterface {
         this.maxDead = obj.maxDead ?? 5;
         this.autofocusSearch = obj.autofocusSearch ?? false;
         this.sortMode = obj.sortMode ?? SortModes.DEFAULT;
+        this.filterFirefoxView = obj.filterFirefoxView ?? true;
     }
 }
