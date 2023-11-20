@@ -182,7 +182,15 @@ async function main(): Promise<void> {
 
     // remove firefox view tabs
     if (res.filterFirefoxView) {
+        // remove firefox view from the list
         tabs = tabs.filter(item => item.url !== "about:firefoxview-next");
+
+        // if firefox view is selected when opened, then there will be no active tab
+        // if there's no active tab, set first tab to active
+        const focus = tabs.find(item => item.active);
+        if (focus === undefined) {
+            tabs[0].active = true;
+        }
     }
 
     // create html elements from tab query
