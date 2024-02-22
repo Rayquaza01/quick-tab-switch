@@ -23,7 +23,7 @@ function getOnScreen() {
     } else {
         const rect = tabList.getActive().getElement.getBoundingClientRect();
         window.scrollTo({
-            top: rect.top + window.pageYOffset - document.documentElement.clientTop,
+            top: rect.top + window.scrollY - document.documentElement.clientTop,
             left: 0,
             behavior: "smooth"
         });
