@@ -183,7 +183,7 @@ async function main(): Promise<void> {
     // remove firefox view tabs
     if (res.filterFirefoxView) {
         // remove firefox view from the list
-        tabs = tabs.filter(item => item.url !== "about:firefoxview-next");
+        tabs = tabs.filter(item => item.url !== "about:firefoxview-next" && item.url !== "about:firefoxview");
 
         // if firefox view is selected when opened, then there will be no active tab
         // if there's no active tab, set first tab to active
