@@ -2,9 +2,9 @@
 
 System details:
  * Fedora 39
- * bash 5.2.21
- * node v20.8.1
- * npm 9.7.2
+ * bash 5.2.26
+ * node v20.10.0
+ * npm 10.4.0
  * For tool and library versions, check package.json
 
 # Building Complete Extension
