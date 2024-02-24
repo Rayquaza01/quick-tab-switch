@@ -1,4 +1,4 @@
-# Building Quick Tab Switcher 1.3.0
+# Building Quick Tab Switcher 1.3.1
 
 System details:
  * Fedora 39
