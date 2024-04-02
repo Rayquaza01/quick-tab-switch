@@ -95,9 +95,8 @@ export class TabList {
             } else {
                 this.setActive(newActive);
             }
-        } else {
-            console.log("List is empty, don't bother...");
         }
+        // if list is empty, no need to select anything. nothing is visible anyway.
     }
 
     /**
