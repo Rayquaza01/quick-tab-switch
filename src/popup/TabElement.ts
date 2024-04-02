@@ -1,3 +1,5 @@
+import { loadSVG, Star } from "../svg";
+
 /** Represents a tab */
 export class TabElement {
     private element: HTMLDivElement;
@@ -47,6 +49,12 @@ export class TabElement {
 
         if (active) {
             this.element.classList.add("active");
+
+            // add class for if the tab is selected by the browser
+            this.element.classList.add("selected");
+
+            // add an indicator on the selected tab
+            this.element.appendChild(loadSVG(Star));
         }
 
         if (dead) {
