@@ -7,6 +7,10 @@ function mod(n: number, m: number) {
     return ((n % m) + m) % m;
 }
 
+function clamp(num: number, min: number, max: number) {
+    return Math.min(max, Math.max(num, min));
+}
+
 /** List of TabElements */
 export class TabList {
     private list: TabElement[];
@@ -77,17 +81,18 @@ export class TabList {
         if (length > 0) {
             // if there was a previous active, set it as blank
             if (active) active.setActive = false;
+
             // new active is either the currently selected item, or the last item
             // whichever comes first
-            // if list is blank, select first item instead
-            const newActive = Math.min(activeIdx, length - 1);
+            const newActive = clamp(activeIdx, 0, length - 1);
             if (newActive < 1) {
-                console.log("New active is ", newActive);
-                console.log("Selecting first");
-                // TODO is this needed?
+                // if new active is the first element, do select first
+                // if skipFirst is set (ie tab order is last accessed), first tab is probably selected (in the browser) tab
+                // so we select first to avoid moving the cursor on top of the selected tab
+                // if the selected tab is NOT the first, or if skipFirst is not set,
+                // this will select the first element normally
                 this.selectFirst();
             } else {
-                console.log("New active is ", newActive);
                 this.setActive(newActive);
             }
         } else {
