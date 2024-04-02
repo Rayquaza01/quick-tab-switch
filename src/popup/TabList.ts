@@ -12,7 +12,7 @@ export class TabList {
     private list: TabElement[];
     private searchMode: OptionsInterface["searchMode"];
     private caseSensitivity: OptionsInterface["caseSensitivity"];
-    private skipFirst: number;
+    private skipFirst: boolean;
 
     /**
      * Create list of tab elements
@@ -20,10 +20,15 @@ export class TabList {
      * @param searchMode - Normal or Regex search
      * @param caseSensitivity - Is search case sensitive
      */
-    constructor(list: TabElement[], searchMode: OptionsInterface["searchMode"], caseSensitivity: OptionsInterface["caseSensitivity"]) {
+    constructor(list: TabElement[], searchMode: OptionsInterface["searchMode"], caseSensitivity: OptionsInterface["caseSensitivity"], skipFirst: boolean) {
         this.list = list;
         this.searchMode = searchMode;
         this.caseSensitivity = caseSensitivity;
+        this.skipFirst = skipFirst;
+
+        if (this.skipFirst) {
+            this.selectFirst();
+        }
     }
 
     /**
@@ -93,12 +98,12 @@ export class TabList {
         return list[mod(pos, list.length)];
     }
 
-    removeActive(): void {
+    removeActive(): boolean {
         const active = this.getActive();
         const activeIndex = this.getActiveIndex();
 
         if (active.isDead) {
-            return;
+            return false;
         }
 
         browser.tabs.remove(Number(active.getID));
@@ -113,6 +118,8 @@ export class TabList {
         // get real index (can't use getActiveIndex, since that is filtered by search)
         const absActiveIndex = this.list.indexOf(active);
         this.list.splice(absActiveIndex, 1);
+
+        return active.isSelected;
     }
 
     next(num: number) {
@@ -136,6 +143,15 @@ export class TabList {
         if (active) active.setActive = false;
 
         this.at(pos).setActive = true;
+    }
+
+    selectFirst() {
+        if (this.skipFirst) {
+            const pos = this.getList().slice(1).findIndex(i => !i.isDead && !i.isHidden);
+            this.setActive(pos + 1);
+        } else {
+            this.setActive(0);
+        }
     }
 
     clearActive() {

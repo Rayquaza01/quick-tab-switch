@@ -76,7 +76,7 @@ function switchTab(e: KeyboardEvent) {
             getOnScreen();
         } else if (e.key === "g") {
             // scroll to top
-            tabList.setActive(0);
+            tabList.selectFirst();
             getOnScreen();
         } else if (e.key === "G") {
             // scroll to bottom
@@ -96,10 +96,10 @@ function switchTab(e: KeyboardEvent) {
             tabList.clearActive();
         } else if (e.key === "w") {
             // remove active tab from tab list
-            tabList.removeActive();
+            const closingSelected = tabList.removeActive();
 
             // close window if current tab is selected
-            if (tabList.getActive().isSelected) window.close();
+            if (closingSelected) window.close();
 
             // if every item in the tab list is hidden, mark search as invalid
             if (tabList.getList().every(item => item.isHidden)) {
@@ -217,15 +217,11 @@ async function main(): Promise<void> {
         });
     }
 
-    tabList = new TabList(tabEles, res.searchMode, res.caseSensitivity);
+    tabList = new TabList(tabEles, res.searchMode, res.caseSensitivity, res.skipFirst);
 
     if (res.autofocusSearch) {
         search.focus();
         tabList.getActive().setActive = false;
-    }
-
-    if (res.selectSecond && res.sortMode === SortModes.LAST_ACCESSED && tabEles.length > 1) {
-        tabList.next(1);
     }
 }
 
