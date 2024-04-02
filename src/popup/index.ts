@@ -64,38 +64,28 @@ function createTabs(info: Tabs.Tab): TabElement {
 function switchTab(e: KeyboardEvent) {
     if (document.activeElement !== search) {
         e.preventDefault();
-        const active = tabList.getActive();
-        const activeIdx = tabList.getActiveIndex();
+        // const active = tabList.getActive();
+        // const activeIdx = tabList.getActiveIndex();
         if (e.key.toLowerCase() === "j" || e.key === "ArrowDown") {
             // scroll down with j, J or down arrow
-            active.setActive = false;
-            tabList.at(activeIdx + 1).setActive = true;
+            tabList.next(1);
             getOnScreen();
         } else if (e.key.toLowerCase() === "k" || e.key === "ArrowUp") {
             // scroll up with k, K or up arrow
-            active.setActive = false;
-            tabList.at(activeIdx - 1).setActive = true;
+            tabList.prev(1);
             getOnScreen();
         } else if (e.key === "g") {
             // scroll to top
-            active.setActive = false;
-            tabList.at(0).setActive = true;
+            tabList.setActive(0);
             getOnScreen();
         } else if (e.key === "G") {
             // scroll to bottom
-            active.setActive = false;
-            tabList.at(-1).setActive = true;
+            tabList.setActive(-1);
             getOnScreen();
             // } else if (e.key.toLowerCase() === "x") {
         } else if (e.key === "Enter") {
             // select tab
-            if (active.isDead) {
-                // restore session if tab is dead
-                browser.sessions.restore(active.getID);
-            } else {
-                // switch to tab if tab is alive
-                browser.tabs.update(Number(active.getID), { active: true });
-            }
+            tabList.open();
             window.close();
         } else if (e.key === "/") {
             // select search box
@@ -103,16 +93,13 @@ function switchTab(e: KeyboardEvent) {
                 e.preventDefault();
             }
             search.focus();
-            active.setActive = false;
+            tabList.clearActive();
         } else if (e.key === "w") {
-            // close tab
-            browser.tabs.remove(Number(active.getID));
-
-            // close window if current tab is selected
-            if (active.isSelected) window.close();
-
             // remove active tab from tab list
             tabList.removeActive();
+
+            // close window if current tab is selected
+            if (tabList.getActive().isSelected) window.close();
 
             // if every item in the tab list is hidden, mark search as invalid
             if (tabList.getList().every(item => item.isHidden)) {
@@ -133,7 +120,7 @@ function switchTab(e: KeyboardEvent) {
 
         // move cursor to first visible item
         if (tabList.getList(true).length > 0) {
-            tabList.at(0).setActive = true;
+            tabList.setActive(0);
             search.blur();
         }
         // grey out search bar
@@ -235,6 +222,10 @@ async function main(): Promise<void> {
     if (res.autofocusSearch) {
         search.focus();
         tabList.getActive().setActive = false;
+    }
+
+    if (res.selectSecond && res.sortMode === SortModes.LAST_ACCESSED && tabEles.length > 1) {
+        tabList.next(1);
     }
 }
 

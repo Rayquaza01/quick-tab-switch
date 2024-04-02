@@ -1,3 +1,5 @@
+import browser from "webextension-polyfill";
+
 import { OptionsInterface } from "../OptionsInterface";
 import { TabElement } from "./TabElement";
 
@@ -10,6 +12,7 @@ export class TabList {
     private list: TabElement[];
     private searchMode: OptionsInterface["searchMode"];
     private caseSensitivity: OptionsInterface["caseSensitivity"];
+    private skipFirst: number;
 
     /**
      * Create list of tab elements
@@ -94,6 +97,12 @@ export class TabList {
         const active = this.getActive();
         const activeIndex = this.getActiveIndex();
 
+        if (active.isDead) {
+            return;
+        }
+
+        browser.tabs.remove(Number(active.getID));
+
         // remove active element from DOM
         active.getElement.parentElement?.removeChild(active.getElement);
 
@@ -104,5 +113,46 @@ export class TabList {
         // get real index (can't use getActiveIndex, since that is filtered by search)
         const absActiveIndex = this.list.indexOf(active);
         this.list.splice(absActiveIndex, 1);
+    }
+
+    next(num: number) {
+        const active = this.getActive();
+        const activeIdx = this.getActiveIndex();
+
+        active.setActive = false;
+        this.at(activeIdx + num).setActive = true;
+    }
+
+    prev(num: number) {
+        const active = this.getActive();
+        const activeIdx = this.getActiveIndex();
+
+        active.setActive = false;
+        this.at(activeIdx - num).setActive = true;
+    }
+
+    setActive(pos: number) {
+        const active = this.getActive();
+        if (active) active.setActive = false;
+
+        this.at(pos).setActive = true;
+    }
+
+    clearActive() {
+        this.getActive().setActive = false;
+    }
+
+    open(pos?: number) {
+        const active = pos !== undefined
+            ? this.at(pos)
+            : this.getActive();
+
+        if (active.isDead) {
+            // restore session if tab is dead
+            browser.sessions.restore(active.getID);
+        } else {
+            // switch to tab if tab is alive
+            browser.tabs.update(Number(active.getID), { active: true });
+        }
     }
 }
