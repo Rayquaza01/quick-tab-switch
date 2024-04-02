@@ -85,7 +85,7 @@ export class TabList {
             // new active is either the currently selected item, or the last item
             // whichever comes first
             const newActive = clamp(activeIdx, 0, length - 1);
-            if (newActive < 1) {
+            if (newActive < 2) {
                 // if new active is the first element, do select first
                 // if skipFirst is set (ie tab order is last accessed), first tab is probably selected (in the browser) tab
                 // so we select first to avoid moving the cursor on top of the selected tab
