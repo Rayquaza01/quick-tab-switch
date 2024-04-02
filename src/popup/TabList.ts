@@ -36,6 +36,12 @@ export class TabList {
      * @param filterText - Search term to use
      */
     filter(filterText: string): void {
+        // get active before filtering
+        // this the selected tab *before* applying the new string
+        // active could be undefined if search was invalid
+        const active = this.getActive();
+        const activeIdx = this.getActiveIndex();
+
         if (this.searchMode === "regex") {
             // create regex
             const regex = new RegExp(
@@ -64,6 +70,28 @@ export class TabList {
                     item.setHidden = true;
                 }
             });
+        }
+
+        const length = this.getList(true).length;
+        // if search is valid
+        if (length > 0) {
+            // if there was a previous active, set it as blank
+            if (active) active.setActive = false;
+            // new active is either the currently selected item, or the last item
+            // whichever comes first
+            // if list is blank, select first item instead
+            const newActive = Math.min(activeIdx, length - 1);
+            if (newActive < 1) {
+                console.log("New active is ", newActive);
+                console.log("Selecting first");
+                // TODO is this needed?
+                this.selectFirst();
+            } else {
+                console.log("New active is ", newActive);
+                this.setActive(newActive);
+            }
+        } else {
+            console.log("List is empty, don't bother...");
         }
     }
 
@@ -146,9 +174,8 @@ export class TabList {
     }
 
     selectFirst() {
-        if (this.skipFirst) {
-            const pos = this.getList().slice(1).findIndex(i => !i.isDead && !i.isHidden);
-            this.setActive(pos + 1);
+        if (this.skipFirst && this.at(0).isSelected && !this.at(1).isDead) {
+            this.setActive(1);
         } else {
             this.setActive(0);
         }

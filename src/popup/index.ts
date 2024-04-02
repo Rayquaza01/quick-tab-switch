@@ -82,7 +82,6 @@ function switchTab(e: KeyboardEvent) {
             // scroll to bottom
             tabList.setActive(-1);
             getOnScreen();
-            // } else if (e.key.toLowerCase() === "x") {
         } else if (e.key === "Enter") {
             // select tab
             tabList.open();
@@ -93,7 +92,7 @@ function switchTab(e: KeyboardEvent) {
                 e.preventDefault();
             }
             search.focus();
-            tabList.clearActive();
+            // tabList.clearActive();
         } else if (e.key === "w") {
             // remove active tab from tab list
             const closingSelected = tabList.removeActive();
@@ -102,7 +101,7 @@ function switchTab(e: KeyboardEvent) {
             if (closingSelected) window.close();
 
             // if every item in the tab list is hidden, mark search as invalid
-            if (tabList.getList().every(item => item.isHidden)) {
+            if (tabList.getList(true).length === 0) {
                 search.classList.add("invalid");
                 search.focus();
             }
@@ -115,17 +114,45 @@ function switchTab(e: KeyboardEvent) {
             browser.runtime.openOptionsPage();
             window.close();
         }
-    } else if (e.key === "Enter") {
-        // move back to tab list from search box
+    } else {
+        if (e.key === "Enter") {
+            if (e.ctrlKey) {
+                tabList.open();
+                window.close();
+            } else {
+                // move back to tab list from search box
 
-        // move cursor to first visible item
-        if (tabList.getList(true).length > 0) {
-            tabList.setActive(0);
-            search.blur();
+                // move cursor to first visible item
+                if (tabList.getList(true).length > 0) {
+                    // tabList.setActive(0);
+                    search.blur();
+                }
+                // grey out search bar
+                if (search.value === "/") {
+                    search.value = "";
+                }
+            }
+
         }
-        // grey out search bar
-        if (search.value === "/") {
-            search.value = "";
+        if (e.ctrlKey) {
+            e.preventDefault();
+            if (e.key.toLowerCase() === "j") {
+                // scroll down with j, J or down arrow
+                tabList.next(1);
+                getOnScreen();
+            } else if (e.key.toLowerCase() === "k") {
+                // scroll up with k, K or up arrow
+                tabList.prev(1);
+                getOnScreen();
+            } else if (e.key === "g") {
+                // scroll to top
+                tabList.selectFirst();
+                getOnScreen();
+            } else if (e.key === "G") {
+                // scroll to bottom
+                tabList.setActive(-1);
+                getOnScreen();
+            }
         }
     }
 }
@@ -217,7 +244,10 @@ async function main(): Promise<void> {
         });
     }
 
-    tabList = new TabList(tabEles, res.searchMode, res.caseSensitivity, res.skipFirst);
+    // only enable skip first if sorted by last accessed
+    const skipFirst = res.skipFirst && res.sortMode === SortModes.LAST_ACCESSED;
+
+    tabList = new TabList(tabEles, res.searchMode, res.caseSensitivity, skipFirst);
 
     if (res.autofocusSearch) {
         search.focus();
