@@ -134,21 +134,25 @@ function switchTab(e: KeyboardEvent) {
             }
 
         }
+
         if (e.ctrlKey) {
-            e.preventDefault();
             if (e.key.toLowerCase() === "j") {
+                e.preventDefault();
                 // scroll down with j, J or down arrow
                 tabList.next(1);
                 getOnScreen();
             } else if (e.key.toLowerCase() === "k") {
+                e.preventDefault();
                 // scroll up with k, K or up arrow
                 tabList.prev(1);
                 getOnScreen();
             } else if (e.key === "g") {
+                e.preventDefault();
                 // scroll to top
                 tabList.selectFirst();
                 getOnScreen();
             } else if (e.key === "G") {
+                e.preventDefault();
                 // scroll to bottom
                 tabList.setActive(-1);
                 getOnScreen();
