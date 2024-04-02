@@ -239,13 +239,7 @@ async function main(): Promise<void> {
     // Sets dark class if theme is set to dark, or if theme is set to follow system and system is set to dark.
     // Uses light theme otherwise
     if (res.theme === Themes.DARK || res.theme === Themes.SYSTEM && systemDark) {
-        document.body.classList.add("dark");
-        search.classList.add("dark");
-        overlay.classList.add("dark");
-        tabEles.forEach(item => {
-            if (item !== undefined)
-                item.getElement.classList.add("dark");
-        });
+        document.body.dataset.theme = "dark";
     }
 
     // only enable skip first if sorted by last accessed
