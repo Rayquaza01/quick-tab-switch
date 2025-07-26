@@ -4,6 +4,7 @@ import { Options, SearchModes, SortModes, Themes } from "../OptionsInterface";
 
 const shortcut = document.querySelector("#shortcut") as HTMLInputElement;
 const searchMode = document.querySelector("#searchMode") as HTMLSelectElement;
+const searchCurrentWindowOnly = document.querySelector("#searchCurrentWindowOnly") as HTMLSelectElement;
 const caseSensitivity = document.querySelector("#caseSensitivity") as HTMLSelectElement;
 const showDead = document.querySelector("#showDead") as HTMLSelectElement;
 const maxDead = document.querySelector("#maxDead") as HTMLInputElement;
@@ -17,6 +18,7 @@ async function load() {
     const res = new Options(await browser.storage.local.get());
     shortcut.value = res.shortcut;
     searchMode.value = res.searchMode;
+    searchCurrentWindowOnly.value = res.searchCurrentWindowOnly.toString();
     caseSensitivity.value = res.caseSensitivity.toString();
     theme.value = res.theme;
     showDead.value = res.showDead.toString();
@@ -37,7 +39,8 @@ function save() {
         maxDead: Number(maxDead.value),
         autofocusSearch: autofocusSearch.value === "true",
         sortMode: sortMode.value as SortModes,
-        filterFirefoxView: filterFirefoxView.checked
+        filterFirefoxView: filterFirefoxView.checked,
+        searchCurrentWindowOnly: searchCurrentWindowOnly.value === "true"
     });
 
     browser.storage.local.set(opt);

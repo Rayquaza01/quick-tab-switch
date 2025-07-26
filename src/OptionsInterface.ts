@@ -17,6 +17,7 @@ export enum SortModes {
 export interface OptionsInterface {
     shortcut: string;
     searchMode: SearchModes;
+    searchCurrentWindowOnly: boolean;
     caseSensitivity: boolean;
     theme: Themes;
     showDead: boolean;
@@ -30,6 +31,7 @@ export interface OptionsInterface {
 export class Options implements OptionsInterface {
     shortcut: string;
     searchMode: SearchModes;
+    searchCurrentWindowOnly: boolean;
     caseSensitivity: boolean;
     theme: Themes;
     showDead: boolean;
@@ -42,6 +44,7 @@ export class Options implements OptionsInterface {
     constructor(obj: Partial<OptionsInterface>) {
         this.shortcut = obj.shortcut ?? "Ctrl+Shift+B";
         this.searchMode = obj.searchMode ?? SearchModes.STRING;
+        this.searchCurrentWindowOnly = obj.searchCurrentWindowOnly ?? true;
         this.caseSensitivity = obj.caseSensitivity ?? false;
         this.theme = obj.theme ?? Themes.SYSTEM;
         this.showDead = obj.showDead ?? false;

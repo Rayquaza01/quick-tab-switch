@@ -57,7 +57,7 @@ function createTabs(info: Tabs.Tab): TabElement {
         }
     }
 
-    return new TabElement(id, name, url, favicon, dead, active);
+    return new TabElement(id, name, url, favicon, dead, active, info.windowId!);
 }
 
 /** Keyboard listener */
@@ -188,7 +188,10 @@ async function main(): Promise<void> {
     }
 
     // get tabs
-    let tabs = await browser.tabs.query({ currentWindow: true });
+    let tabs = await browser.tabs.query(
+        res.searchCurrentWindowOnly ? { currentWindow: true } : {}
+    );
+
     if (res.sortMode === SortModes.LAST_ACCESSED) {
         tabs.sort((a, b) => {
             // sort based on last accessed key for tabs
