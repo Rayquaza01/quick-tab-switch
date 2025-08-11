@@ -200,7 +200,12 @@ async function main(): Promise<void> {
             // sort based on last accessed key for tabs
             // typecast used since ts says lastAccessed could be undefined,
             // but according to the docs, this isn't true!
-            return (b.lastAccessed as number) - (a.lastAccessed as number);
+            // return (b.lastAccessed as number) - (a.lastAccessed as number);
+
+            // if lastAccessed is 0, fall back to window id
+            // ensures tabs are always in a consistent order
+            return ((b.lastAccessed as number) - (a.lastAccessed as number)) ||
+                ((b.windowId as number) - (a.windowId as number));
         });
     }
 
