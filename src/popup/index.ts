@@ -7,6 +7,8 @@ import { Options, SortModes, Themes } from "../OptionsInterface";
 /** List of tabs on the page */
 let tabList: TabList;
 
+let windowId = 0;
+
 const tabs_ele = document.querySelector("#tabs") as HTMLDivElement;
 const search = document.querySelector("#search") as HTMLInputElement;
 const overlay = document.querySelector("#overlay") as HTMLDivElement;
@@ -39,7 +41,7 @@ function createTabs(info: Tabs.Tab): TabElement {
     let dead = false;
     let active = false;
 
-    if (info.active) {
+    if (info.active && info.windowId === windowId) {
         active = true;
     }
 
@@ -181,6 +183,7 @@ function filter(): void {
 async function main(): Promise<void> {
     // get options
     const res = new Options(await browser.storage.local.get());
+    windowId = (await browser.windows.getCurrent()).id as number;
 
     // hide overlay if in focus
     if (document.hasFocus()) {
