@@ -11,6 +11,7 @@ const maxDead = document.querySelector("#maxDead") as HTMLInputElement;
 const theme = document.querySelector("#theme") as HTMLSelectElement;
 const autofocusSearch = document.querySelector("#autofocusSearch") as HTMLSelectElement;
 const sortMode = document.querySelector("#sortMode") as HTMLSelectElement;
+const skipFirst = document.querySelector("#skipFirst") as HTMLSelectElement;
 const filterFirefoxView = document.querySelector("#filterFirefoxView") as HTMLInputElement;
 
 /** Loads from storage onto page */
@@ -25,6 +26,7 @@ async function load() {
     maxDead.value = res.maxDead.toString();
     autofocusSearch.value = res.autofocusSearch.toString();
     sortMode.value = res.sortMode;
+    skipFirst.value = res.skipFirst.toString();
     filterFirefoxView.checked = res.filterFirefoxView;
 }
 
@@ -39,6 +41,7 @@ function save() {
         maxDead: Number(maxDead.value),
         autofocusSearch: autofocusSearch.value === "true",
         sortMode: sortMode.value as SortModes,
+        skipFirst: skipFirst.value === "true",
         filterFirefoxView: filterFirefoxView.checked,
         searchCurrentWindowOnly: searchCurrentWindowOnly.value === "true"
     });
