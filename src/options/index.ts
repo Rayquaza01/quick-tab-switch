@@ -46,7 +46,7 @@ function save() {
         searchCurrentWindowOnly: searchCurrentWindowOnly.value === "true"
     });
 
-    browser.storage.local.set(opt);
+    browser.storage.local.set(opt as any);
     browser.commands.update({
         name: "_execute_browser_action",
         shortcut: shortcut.value

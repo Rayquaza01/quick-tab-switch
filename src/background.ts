@@ -23,7 +23,7 @@ async function main(details: Runtime.OnInstalledDetailsType) {
             }
         }
 
-        await browser.storage.local.set(res);
+        await browser.storage.local.set(res as any);
         startup();
     }
 }
