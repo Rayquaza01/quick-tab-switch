@@ -9,7 +9,8 @@ export class TabElement {
     private dead: boolean;
     private active: boolean;
     private hidden = false;
-    private selected: boolean
+    private selected: boolean;
+    private windowId: number;
 
     /**
      * A tab element in the page
@@ -20,12 +21,13 @@ export class TabElement {
      * @param dead - Whether or not the tab is recently closed (dead)
      * @param active - Whether or not the tab is currently selected
      */
-    constructor(id: string, name: string, url: string, favicon: string, dead: boolean, active: boolean) {
+    constructor(id: string, name: string, url: string, favicon: string, dead: boolean, active: boolean, windowId: number) {
         this.id = id;
         this.name = name;
         this.url = url;
         this.dead = dead;
         this.active = active;
+        this.windowId = windowId!;
 
         // selected represents if the tab is currently selected in the tab bar
         // this mirrors active at creation, but active changes with user input
@@ -60,6 +62,10 @@ export class TabElement {
         if (dead) {
             this.element.classList.add("dead");
         }
+    }
+
+    get getWindowId() {
+        return this.windowId;
     }
 
     /** Title of tab */

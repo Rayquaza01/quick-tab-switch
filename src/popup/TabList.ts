@@ -198,8 +198,10 @@ export class TabList {
             // restore session if tab is dead
             browser.sessions.restore(active.getID);
         } else {
-            // switch to tab if tab is alive
+            // switch to window and tab if tab is alive
             browser.tabs.update(Number(active.getID), { active: true });
+            browser.windows.update(active.getWindowId, { focused: true });
         }
     }
+
 }
