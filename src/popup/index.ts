@@ -262,6 +262,8 @@ async function main(): Promise<void> {
         search.focus();
         tabList.getActive().setActive = false;
     }
+
+    getOnScreen();
 }
 
 // keyboard event
