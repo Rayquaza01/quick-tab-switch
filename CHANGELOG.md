@@ -1,4 +1,8 @@
-v1.3.1 Changes
-<ul>
-    <li>Filter Firefox View from tab list (again) (<a href="https://github.com/Rayquaza01/quick-tab-switch/issues/25">#25</a>)</li>
-</ul>
+## What's Changed
+* Support tabs from multiple windows
+* Support skipping first tab (for last accessed sort)
+
+## New Contributors
+* @jackiesogi made their first contribution in https://github.com/Rayquaza01/quick-tab-switch/pull/26
+
+**Full Changelog**: https://github.com/Rayquaza01/quick-tab-switch/compare/v1.3.1...v1.4.1
