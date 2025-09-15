@@ -1,10 +1,10 @@
-# Building Quick Tab Switcher 1.3.1
+# Building Quick Tab Switcher 1.4.0
 
 System details:
- * Fedora 39
- * bash 5.2.26
- * node v20.10.0
- * npm 10.4.0
+ * Fedora 42
+ * bash 5.2.37
+ * node v22.18.0
+ * npm 11.5.2
  * For tool and library versions, check package.json
 
 # Building Complete Extension
